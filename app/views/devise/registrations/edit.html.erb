@@ -14,7 +14,12 @@
 
             <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
               <%= render "devise/shared/error_messages", resource: resource %>
-            
+
+              <div class="field">
+                <%= f.label :full_name , class: "label" %>
+                <%= f.text_field :full_name, autofocus: true, autocomplete: "full_name" , class: "input" %>
+              </div>
+
               <div class="field">
                 <%= f.label :email, class: "label" %><br />
                 <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "input" %>
@@ -50,7 +55,7 @@
             
             <h3>Cancel my account</h3>
             
-            <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "button is-danger is-fullwidth" %></p>
+            <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "button is-danger is-fullwidth m-t-10 m-b-10" %></p>
             
             <%= link_to "Back", :back, class: "button is-fullwidth" %>
             
