@@ -74,3 +74,4 @@ end
 gem 'jquery-rails'
 gem 'bulma-rails', '~>0.7.4'
 gem 'bulma-extensions-rails', '~>1.0.30'
+gem 'devise'
