@@ -10,7 +10,8 @@
             <div class="field has-text-centered">
               <strong>Log in</strong>
             </div>
-            <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <%= form_for(resource, as: resource_name, url: session_path(resource_name), data: {turbo: false}) do |f| %>
+            <%= render "devise/shared/error_messages", resource: resource %>
             <div class="field">
               <%= f.label :email, class: "label"  %>
               <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "input" %>
@@ -27,7 +28,9 @@
                 <%= f.label :remember_me, class: "label" %>
               </div>
             <% end %>
-          
+            
+            <%= link_to "Log in with facebook", user_facebook_omniauth_authorize_path , class: "button is-primary is-fullwidth" %>
+
             <div class="actions">
               <%= f.submit "Log in", class: "button is-danger is-fullwidth m-t-10 m-b-10" %>
             </div>

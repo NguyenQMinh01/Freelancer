@@ -311,4 +311,9 @@ Devise.setup do |config|
 
   config.navigational_formats = ['*/*', :html, :turbo_stream]
 
+  config.omniauth :facebook, '771615063902682', 'a3377ef1a5a21b3a1779d1b6e5c82f7b',
+  scope: 'email',
+  info_fields: "email,name",
+  image_size: 'large'
+
 end

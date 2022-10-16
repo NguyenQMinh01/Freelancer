@@ -35,6 +35,7 @@
                   <%= f.label :password_confirmation , class: "label" %>  
                   <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "input" %>
                 </div>
+                <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path,class: "button is-primary is-fullwidth" %>
               
                 <div class="actions">
                   <%= f.submit "Sign up", class: "button is-danger is-fullwidth m-t-10 m-b-10" %>
