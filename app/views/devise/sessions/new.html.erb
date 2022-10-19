@@ -10,16 +10,14 @@
             <div class="field has-text-centered">
               <strong>Log in</strong>
             </div>
-            <%= form_for(resource, as: resource_name, url: session_path(resource_name), data: {turbo: false}) do |f| %>
-            <%= render "devise/shared/error_messages", resource: resource %>
-            <div class="field">
-              <%= f.label :email, class: "label"  %>
-              <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "input" %>
+            <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <%= f.error_notification %>
+            <div class="form-inputs">
+              <%= f.input :email, autofocus: true,required: true, input_html: { autocomplete: "email" }, class: "input" %>
             </div>
           
-            <div class="field">
-              <%= f.label :password, class: "label"  %>
-              <%= f.password_field :password, autocomplete: "current-password", class: "input" %>
+            <div class="form-inputs">
+              <%= f.input :password, autocomplete: "current-password", class: "input" %>
             </div>
           
             <% if devise_mapping.rememberable? %>
@@ -29,7 +27,8 @@
               </div>
             <% end %>
             
-            <%= link_to "Log in with facebook", user_facebook_omniauth_authorize_path , class: "button is-primary is-fullwidth" %>
+           
+           
 
             <div class="actions">
               <%= f.submit "Log in", class: "button is-danger is-fullwidth m-t-10 m-b-10" %>

@@ -4,4 +4,5 @@ class RegistrationsController < Devise::RegistrationsController
         respond.update_without_password(params)
     end
 
+   
 end

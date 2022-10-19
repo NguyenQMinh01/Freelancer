@@ -76,5 +76,9 @@ gem 'bulma-rails', '~>0.7.4'
 gem 'bulma-extensions-rails', '~>1.0.30'
 gem 'devise'
 gem 'noty-rails'
-gem 'omniauth', '=1.9.0'
+gem 'omniauth'
 gem 'omniauth-facebook', '=5.0.0'
+gem 'simple_form'
+
+gem 'omniauth-google-oauth2'
+gem "omniauth-rails_csrf_protection", "~> 1.0"

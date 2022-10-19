@@ -17,3 +17,17 @@
  @import 'bulma-extensions';
  @import 'noty/lib/noty';
  @import 'noty/lib/themes/sunset';
+
+
+.form-control {
+  border-radius: 25px;
+  width: 620px;
+  height: 40px;
+  font-size: 17px;
+}
+
+.form-group-invalid{
+  color: red;
+}
+
+
