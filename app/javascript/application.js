@@ -15,3 +15,5 @@ window.Noty = require("noty")
 //         $('#'+ e.target.getAttribute('aria-controls')).toggleClass('is-hidden');
 //     })
 //  })
+import "trix"
+import "@rails/actiontext"

@@ -47,7 +47,14 @@
     "@jridgewell/resolve-uri" "3.1.0"
     "@jridgewell/sourcemap-codec" "1.4.14"
 
-"@rails/activestorage@^7.0.4":
+"@rails/actiontext@^7.0.4":
+  version "7.0.4"
+  resolved "https://registry.yarnpkg.com/@rails/actiontext/-/actiontext-7.0.4.tgz#742a74155b8c8ebf65e696ab6a6d2a3212511092"
+  integrity sha512-vyXZ4cNkudpfSfFWuyo1SSKBQXTK2H02xjd5vLHIBqJOKaqcZ7aFWe6n8NoQrTpAt+ULYtjkH0xMhJ5holswsQ==
+  dependencies:
+    "@rails/activestorage" ">= 7.0.0-alpha1"
+
+"@rails/activestorage@>= 7.0.0-alpha1", "@rails/activestorage@^7.0.4":
   version "7.0.4"
   resolved "https://registry.yarnpkg.com/@rails/activestorage/-/activestorage-7.0.4.tgz#56bc3052f60e8867b40a87ed5ff3c0afe536643e"
   integrity sha512-K2fV9C0z88fapu58nt9uHzMylsmJWUFuaIFvuZQEf1WTiPMsgTsj1bf8+cD81zXfTXYMZDQNRq4164JmuBKD3A==
@@ -725,6 +732,11 @@ terser@^5.14.1:
     acorn "^8.5.0"
     commander "^2.20.0"
     source-map-support "~0.5.20"
+
+trix@^2.0.0-beta.0:
+  version "2.0.0-beta.0"
+  resolved "https://registry.yarnpkg.com/trix/-/trix-2.0.0-beta.0.tgz#e7034867182356c023abdef90c7bdc341bb3e105"
+  integrity sha512-D1c7FxP1hGXM/MnTd/+fGUbSDLkfxsqjA0NxOTzByQywVJVNHDOkn8xAScCKVOiAN6hXlqUR2qX4CPJHTGj+cQ==
 
 turbolinks@^5.2.0:
   version "5.2.0"
