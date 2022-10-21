@@ -6,7 +6,7 @@ class User < ApplicationRecord
   
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, 
-         :omniauthable #omniauth_providers: [:google_oauth2]
+         :omniauthable, omniauth_providers: [:google_oauth2]
   validates :full_name, presence: true, length: { maximum: 50 }
   validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }
         
