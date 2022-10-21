@@ -98,6 +98,8 @@ GEM
       responders
       warden (~> 1.2.3)
     erubi (1.11.0)
+    faker (2.23.0)
+      i18n (>= 1.8.11, < 2)
     faraday (2.6.0)
       faraday-net_http (>= 2.0, < 3.1)
       ruby2_keywords (>= 0.0.4)
@@ -138,6 +140,8 @@ GEM
     minitest (5.16.3)
     msgpack (1.6.0)
     multi_xml (0.6.0)
+    net-http (0.2.2)
+      uri
     net-imap (0.3.1)
       net-protocol
     net-pop (0.1.2)
@@ -253,6 +257,7 @@ GEM
       railties (>= 6.0.0)
     tzinfo (2.0.5)
       concurrent-ruby (~> 1.0)
+    uri (0.11.0)
     version_gem (1.1.1)
     warden (1.2.9)
       rack (>= 2.0.9)
@@ -283,10 +288,12 @@ DEPENDENCIES
   capybara
   debug
   devise
+  faker
   image_processing (~> 1.2)
   importmap-rails
   jbuilder
   jquery-rails
+  net-http
   noty-rails
   omniauth
   omniauth-facebook (= 5.0.0)

@@ -7,7 +7,7 @@ class GigsController < ApplicationController
 
   def new
     @gig = current_user.gigs.build
-    @categories  = Categories.all
+    @categories  = Category.all
   end
 
   def create
