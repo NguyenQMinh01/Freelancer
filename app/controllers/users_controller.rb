@@ -10,9 +10,9 @@ class UsersController < ApplicationController
   def update 
     @user = current_user
     if @user.update(current_user_params)
-      flash[:notice] =  "Saved...."
+      flash[:notice] =  "Saved Success"
     else
-      flash[:alert] = "Cannot update..."
+      flash[:alert] = "Cannot update"
     end
     redirect_to dashboard_path
   end

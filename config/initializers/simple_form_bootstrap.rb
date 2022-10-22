@@ -426,7 +426,7 @@ SimpleForm.setup do |config|
     time:          :vertical_multi_select
   }
 
-  # enable custom form wrappers
+  #enable custom form wrappers
   # config.wrapper_mappings = {
   #   boolean:       :custom_boolean,
   #   check_boxes:   :custom_collection,
