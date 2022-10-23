@@ -167,23 +167,26 @@
                 <div class="columns is-multiline">
 
                    <!-- Create New Gig -->
-                    <div class="column is-one-third has-text-centered">
-                        <%= link_to new_gig_path do %>
+            
+                        <div class="column is-one-third has-text-centered">
+                            <%= link_to new_gig_path do %>
                             <div class="card">
 
                                 <div class="card-image card-content is-horizontal-center is-flex ">
                                     <figure class="image is-128x128 ">
-                                        <%= image_tag "106230_add_icon.png" %>
+                                        <!-- Plus Image Here -->
+                                        <%= image_tag '106230_add_icon.png' %>
                                     </figure>
                                 </div>
 
                                 <div class="card-content">
                                     <strong>Create a new gig</strong>
                                 </div>    
-                        </div>
-                        <% end %>
-                    </div>
 
+                            </div>
+                            <% end %>
+                        </div>
+                                            
 
                     <!-- Sample Gig -->
 
@@ -197,7 +200,7 @@
                                         <!-- Gig Cover Image Here -->
                                         <%= image_tag gig_cover(gig) %>
                                     </figure>
-                                    <% end %>
+                                    <% end %> 
                                 </div>
 
                                 <div class="card-content p-t-5 p-b-5">
@@ -208,12 +211,12 @@
                                 </div>
 
                                 <footer class="card-footer">
-                                    <% basic_p = gig.pricings.find { |p| p.pricing_type == 'basic' } %>
+                                    <% basic_price = gig.pricings.find { |p| p.pricing_type == 'basic' } %>
 
                                     <a class="has-text-danger is-block card-footer-item has-text-right">
-                                        <% if !basic_p.nil? %>
+                                        <% if !basic_price.nil? %>
                                         <span class="small-title">STARTING AT</span> 
-                                        <strong>$<%= basic_p.price  %></strong> 
+                                        <strong>$<%= basic_price.price  %></strong> 
                                         <% else %>
                                         <strong> 
                                             <span class="small-title has-text-dark">NO PRICICNG YET </span>

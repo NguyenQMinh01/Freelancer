@@ -25,6 +25,10 @@ $sides: (top, bottom, left, right);
 
   }
 
+  .f-#{$space} {
+    font-size: #{$space}px !important;
+  }
+
 }
   .is-horizontal-center {
     justify-content: center;

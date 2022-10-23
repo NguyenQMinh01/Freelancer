@@ -44,13 +44,6 @@
         <label class="label">Category</label>
         <%= f.select(:category_id, options_for_select(@categories.map{|c| [c.name, c.id]})) %>
         </div>
-        <div class="field">
-          <label  class="check">
-              <%= f.check_box :has_single_pricing, class: "checkbox", onchange: "this.form.sumit();"%> Has_single_price
-          </label>
-        </div>
-
-
         <div class="field is-grouped is-grouped-centered m-t-25">
             <a href="" data-nav="previous" class ="button is-light">Cancel</a>
             <%= f.submit "Save and Continue", class: "button is-primary" %>

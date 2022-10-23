@@ -47,3 +47,5 @@ rails g controller Gigs new create edit update show
 
 * yarn add dropzone (để upload image)
 
+* yarn add bulma-extensions
+

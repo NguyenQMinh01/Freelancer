@@ -6,8 +6,13 @@ Rails.application.routes.draw do
   # get 'gigs/edit'
   # get 'gigs/update'
   # get 'gigs/show'
-  resources :gigs 
-   
+  resources :gigs do
+    member do
+      delete :delete_path
+      post :upload_path
+    end
+  end
+  
 
    get '/dashboard', to: 'users#dashboard'
    get 'users/:id', to: 'users#show'

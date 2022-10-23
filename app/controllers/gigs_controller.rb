@@ -26,7 +26,7 @@ class GigsController < ApplicationController
 
   def edit
     @categories  = Category.all
-    @step = params[:step ].to_i # exm http://127.0.0.1:3000/gigs/1/edit?step=1
+    #@step = params[:step].to_i   # exm http://127.0.0.1:3000/gigs/1/edit?step=1
   end
 
   def update
@@ -88,6 +88,7 @@ class GigsController < ApplicationController
 
   
   def show
+    @categories = Category.all
   end
 
   def upload_photo 
@@ -106,7 +107,7 @@ class GigsController < ApplicationController
   def set_step
       @step = params[:step].to_i > 0 ?  params[:step].to_i : 1
       if @step > 5
-        @step == 5
+        @step = 5
       end
   end
 
