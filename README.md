@@ -44,3 +44,6 @@ rails g controller Gigs new create edit update show
 
 * https://wikiki.github.io/components/steps/ 
 * vô trang web để lấy code steps
+
+* yarn add dropzone (để upload image)
+

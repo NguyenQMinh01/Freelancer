@@ -7,13 +7,18 @@ require("@rails/activestorage").start()
 require("channels")
 window.Noty = require("noty")
 
+window.Dropzone = require("dropzone")
+
 
 // $(document).ready(() => {
 //     $('.toogle').on('click', (e) =>{
 //         e.stopPropagation();
 //         e.preventDefault();
 //         $('#'+ e.target.getAttribute('aria-controls')).toggleClass('is-hidden');
-//     })
+//     }) 
 //  })
+
+
+   
 import "trix"
 import "@rails/actiontext"
