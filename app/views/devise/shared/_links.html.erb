@@ -20,11 +20,11 @@
 
 <%- if devise_mapping.omniauthable? %>
   <%- resource_class.omniauth_providers.each do |provider| %>
-    <%= form_for "Sign in with Google",
+    <%= form_for "Sign in with #{OmniAuth::Utils.camelize(provider)}",
       url: omniauth_authorize_path(resource_name, provider),
       method: :post,
       data: {turbo: "false"} do |f| %>
-        <%= f.submit "Sign in with Google" %><br />
+        <%= f.submit "Sign in with #{OmniAuth::Utils.camelize(provider)}" %><br />
     <% end %>  
   <% end %>
 <% end %>

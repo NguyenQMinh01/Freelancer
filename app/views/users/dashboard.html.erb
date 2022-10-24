@@ -40,7 +40,7 @@
                                 <article class="media">
                                     <div class = "media-content">Member since</div>
                                     <div class = "media-right">
-                                        <strong> <%= current_user.created_at.strftime('%b %Y') %> </strong>
+                                        <strong> <%= current_user.remember_created_at.strftime('%b %Y') %> </strong>
                                     </div>
                                 </article>
                                 <hr class="h-10">
