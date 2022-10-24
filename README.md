@@ -22,6 +22,10 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+* Tích hợp và sử dụng Active Storage
+* Hiểu nôm na là để up load file , thư mục , image.....
+https://viblo.asia/p/tim-hieu-active-storage-trong-rails-L4x5xaaOKBM
+
 # CREATE GIG(hợp đồng thuê)
 * dịch vụ và sẩn phẩm được tạo nên gọi là gig
 * Create model
@@ -40,3 +44,8 @@ rails g controller Gigs new create edit update show
 
 * https://wikiki.github.io/components/steps/ 
 * vô trang web để lấy code steps
+
+* yarn add dropzone (để upload image)
+
+* yarn add bulma-extensions
+
