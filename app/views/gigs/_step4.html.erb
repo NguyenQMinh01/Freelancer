@@ -43,7 +43,7 @@
         maxFilesize: 2,
         acceptedFiles: "image/*",
         init: function(){
-            this.on('completed', function(file){
+            this.on('complete', function(file){
                 location.reload();
             })
         }
