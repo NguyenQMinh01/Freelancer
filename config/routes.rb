@@ -6,6 +6,15 @@ Rails.application.routes.draw do
   # get 'gigs/edit'
   # get 'gigs/update'
   # get 'gigs/show'
+<<<<<<< HEAD
+=======
+  resources :gigs do
+    member do
+      delete :delete_photo
+      post :upload_photo
+    end
+  end
+>>>>>>> 8437b5b (update gigs#show)
   
 
    get '/dashboard', to: 'users#dashboard'
