@@ -62,7 +62,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_20_041623) do
     t.string "title"
     t.string "video"
     t.boolean "active", default: false
-    t.boolean "has_signle_pricing", default: false
+    t.boolean "has_single_pricing", default: false
     t.bigint "user_id", null: false
     t.bigint "category_id", null: false
     t.datetime "created_at", null: false

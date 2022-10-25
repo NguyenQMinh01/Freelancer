@@ -24,7 +24,7 @@ class User < ApplicationRecord
         user.image = auth.info.image
         user.uid = auth.uid #acp token fb
         user.provider = auth.provider
-        user.skip_confirmation!
+        # user.skip_confirmation!
       end
     end
   end
