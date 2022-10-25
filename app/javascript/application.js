@@ -1,4 +1,5 @@
 // Configure your import map in config/importmap.rb. Read more: https://github.com/rails/importmap-rails
+//= require dropzone
 import "@hotwired/turbo-rails"
 import "controllers"
    
@@ -15,13 +16,13 @@ window.Dropzone = require("dropzone")
 window.BulmaCarousel = require("bulma-extensions/bulma-carousel/dist/js/bulma-carousel")
 
  
-$(document).on('turbolinks:load',() => {
-    $('.toogle').on('click', (e) =>{
-        e.stopPropagation();
-        e.preventDefault();
-        $('#'+ e.target.getAttribute('aria-controls')).toggleClass('is-hidden');
-    }) 
- })
+// $(document).on('turbolinks:load',() => {
+//     $('.toogle').on('click', (e) =>{
+//         e.stopPropagation();
+//         e.preventDefault();
+//         $('#'+ e.target.getAttribute('aria-controls')).toggleClass('is-hidden');
+//     }) 
+//  })
 
 
  $('#editlanguage').on('click',function() {

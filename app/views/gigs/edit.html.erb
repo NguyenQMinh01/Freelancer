@@ -35,7 +35,7 @@
         </div>
   
         <!-- FORM TO CREATE A NEW GIG HERE-->
-        <%= form_for @gig, html: {class: "steps-content m-l-100 m-r-100"} do |f| %>
+        <%= form_for @gig, html: {class: "steps-content m-l-100 m-r-100"} do |f|  %>
         <%= hidden_field_tag 'step', @step %>  
 
             <%= render 'step1', f: f %>

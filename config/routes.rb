@@ -6,12 +6,6 @@ Rails.application.routes.draw do
   # get 'gigs/edit'
   # get 'gigs/update'
   # get 'gigs/show'
-  resources :gigs do
-    member do
-      delete :delete_path
-      post :upload_path
-    end
-  end
   
 
    get '/dashboard', to: 'users#dashboard'
@@ -22,6 +16,15 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+
+  resources :gigs do
+    member do
+      delete :delete_photo
+      get :delete_photo
+      get :upload_photo
+      post :upload_photo
+    end
+  end
 
   devise_for :users,
   path: '',

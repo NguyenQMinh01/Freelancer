@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ *= require dropzone/dropzone
  */
  @import 'bulma';
  @import 'bulma-extensions';
@@ -33,6 +34,20 @@
 
 .form-group-invalid{
   color: red;
+}
+
+.dropzone{
+  height: 200px;
+  .button{
+    position: absolute;
+    top: 40%;
+  }
+
+  .row{
+    color: red;
+    text-align: center;
+    margin-top: 20px;
+  }
 }
 
 

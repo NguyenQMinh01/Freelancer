@@ -6,7 +6,7 @@ class User < ApplicationRecord
   
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, 
-         :omniauthable, omniauth_providers: [:google_oauth2]
+         :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
   validates :full_name, presence: true, length: { maximum: 50 }
   validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }
         
@@ -24,6 +24,7 @@ class User < ApplicationRecord
         user.image = auth.info.image
         user.uid = auth.uid #acp token fb
         user.provider = auth.provider
+        # user.skip_confirmation!
       end
     end
   end
