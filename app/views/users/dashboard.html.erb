@@ -145,7 +145,7 @@
                                                 <%= f.text_field :language, autofocus: true, autocomplete: 'form', class: 'input' %>
                                             </div>
                                     
-                                            <a class=" toogle button is-light" aria-controls="user-language">Cancel</a>
+                                            <a class=" toogle button is-light" aria-controls="user-language" onclick="hideElement('divLanguage')">Cancel</a>
                                             <%= f.submit "Save", class: "button is-danger" %>
                                         <% end %>
                                     </div>
