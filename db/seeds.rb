@@ -7,12 +7,12 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 # Create dummy catetories
-# 10.times do
-#     Category.create(
-#         name: Faker::Job.unique.field
-#     )
-# end
-
+10.times do
+    Category.create(
+        name: Faker::Job.unique.field
+    )
+end
+=begin
 # Create dummy users
 1.times do
      user = User.create(
@@ -31,3 +31,4 @@
         content_type: 'image/jpg'
     )
 end
+=end

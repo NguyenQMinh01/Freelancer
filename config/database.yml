@@ -28,7 +28,7 @@ development:
   username: <%= ENV['name'] %>
 
   # The password associated with the postgres role (username).
-  password: minh21052002
+  password:  <%= ENV['password'] %>
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -76,7 +76,7 @@ test:
   username: <%= ENV['name'] %>
 
   # The password associated with the postgres role (username).
-  password: minh21052002
+  password: <%= ENV['password'] %>
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
