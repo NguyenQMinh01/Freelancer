@@ -9,7 +9,7 @@
         <div class="control">
             <div class="m-b-20">
                 <!-- Photos Drop Zone Here -->
-                <div class="dropzone col-md-8" id="myDropzone" action="/gigs/<%=@gig.id%>/upload_photo">
+                <div class="dropzone col-md-8" id="myDropzone" action="/gigs/<%= @gig.id %>/upload_photo">
                 </div>
             </div>
 
@@ -48,5 +48,6 @@
             })
         }
     }
+
 </script>
 
