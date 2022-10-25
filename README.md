@@ -27,6 +27,9 @@ Things you may want to cover:
 https://viblo.asia/p/tim-hieu-active-storage-trong-rails-L4x5xaaOKBM
 
 # CREATE GIG(hợp đồng thuê)
+* tạo active text để handle viết description cho 1 bài post
+* link tham khảo: https://viblo.asia/p/action-text-trong-rails-6-Qpmlex8MZrd
+ 
 * dịch vụ và sẩn phẩm được tạo nên gọi là gig
 * Create model
 

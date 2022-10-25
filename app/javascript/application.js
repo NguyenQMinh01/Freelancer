@@ -1,7 +1,9 @@
 // Configure your import map in config/importmap.rb. Read more: https://github.com/rails/importmap-rails
 import "@hotwired/turbo-rails"
 import "controllers"
-
+   
+import "trix"
+import "@rails/actiontext"
 
 require("@rails/ujs").start()
 require("turbolinks").start()
@@ -22,7 +24,15 @@ $(document).on('turbolinks:load',() => {
  })
 
 
-   
-import "trix"
-import "@rails/actiontext"
+ $('#editlanguage').on('click',function() {
+    console.log(123)
+    var div = document.getElementsById("languages")
+    div.removeClass("is-hidden").addClass("is-visible")
+
+ })
+
+ 
+
+
+
 
