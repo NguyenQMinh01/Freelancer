@@ -52,13 +52,13 @@
                                         <div class = "media-content">From </div>
                                             <div class = "media-right">
                                                 <strong><%= current_user.from %> </strong>
-                                                <i class="toggle far fa-edit" aria-controls="user-from"></i>
+                                                <i class="toggle far fa-edit"  onclick="hideElement('divFrom')" aria-controls="user-from"></i>
 
                                             </div>
                                        
                                     </div>
 
-                                    <div class = "content">
+                                    <div hidden class = "content"  id="divFrom">
                                         <%= form_for :user, url: users_edit_url(@user), action: :update, method: :post, html: {id: 'user-from', class: ''} do |f| %>
                                             <div class= 'field'>
                                                 <%= f.text_field :from, autofocus: true, autocomplete: 'form', class: 'input' %>
@@ -80,11 +80,12 @@
                                     <div class = "media-content">Online</div>
                                     
                                     <div class = "media-right">
-                                        <strong> <% if current_user.status %> Online <% else %> Offline <% end %> </strong><i class ="toggle far fa-edit" aria-controls="user-status"></i>
+                                        <strong> <% if current_user.status %> Online <% else %> Offline <% end %> </strong>
+                                        <i class ="toggle far fa-edit" onclick="hideElement('divOnlineStatus')" aria-controls="user-status"></i>
                                     </div>
                                 </div>
 
-                                <div class = "content">
+                                <div hidden class = "content" id="divOnlineStatus">
                                     <%= form_for :user, url: users_edit_url(@user), action: :update, method: :post, html: {id: 'user-status', class: ''} do |f| %>
                                         <div class= 'field'>
                                             <%= f.select :status , options_for_select([["Online", true],["Offline",false]]), class: 'genForm_dropBox' %>
@@ -111,11 +112,11 @@
                                         <div class = "media-content">About </div>
                                             <div class = "media-right">
                                                 <strong><%= current_user.about %> </strong>
-                                                <i class="toggle far fa-edit" aria-controls="user-about"></i>
+                                                <i class="toggle far fa-edit" onclick="hideElement('divAbout')" aria-controls="user-about"></i>
                                             </div>
                                     </div>
 
-                                    <div class = "content">
+                                    <div hidden class = "content" id="divAbout">
                                         <%= form_for :user, url: users_edit_url(@user), action: :update, method: :post, html: {id: 'user-about', class: ''} do |f| %>
                                             <div class= 'field'>
                                                 <%= f.text_area :about, autofocus: true, autocomplete: 'form', class: 'input' %>
@@ -134,11 +135,11 @@
                                         <div class = "media-content">Language </div>
                                             <div class = "media-right">
                                                 <strong><%= current_user.language %> </strong>
-                                                <i class="toggle far fa-edit" aria-controls="user-language"></i>
+                                                <i class="toggle far fa-edit" onclick="hideElement('divLanguage')" aria-controls="user-language"></i>
                                             </div>
                                     </div>
 
-                                    <div class = "content">
+                                    <div hidden class = "content" id="divLanguage">
                                         <%= form_for :user, url: users_edit_url(@user), action: :update, method: :post, html: {id: 'user-language', class: ''} do |f| %>
                                             <div class= 'field'>
                                                 <%= f.text_field :language, autofocus: true, autocomplete: 'form', class: 'input' %>
@@ -236,3 +237,13 @@
         </div>
     </div>
 </section>
+<script>
+     function hideElement(id) {
+    var x = document.getElementById(id);
+    if (x.style.display === "block") {
+      x.style.display = "none";
+    } else {
+      x.style.display = "block";
+    }
+  }
+</script>

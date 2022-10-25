@@ -9,10 +9,11 @@
         <div class="control">
             <div class="m-b-20">
                 <!-- Photos Drop Zone Here -->
-                <div class="dropzone" id="myDropzone" action="/gigs/ <%= @gig.id %>/upload_photo"></div>
+                <div class="dropzone col-md-8" id="myDropzone" action="/gigs/<%=@gig.id%>/upload_photo">
+                </div>
             </div>
 
-            <div class="columns is-multiline" style: width: 100%%>
+            <div class="columns is-multiline" style="width: 100%">
                 <!-- Upload your photos -->
                 <% @gig.photos.each do |photo| %>
                 <div class="column is-one-fifth">

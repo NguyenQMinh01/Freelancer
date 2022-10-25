@@ -88,3 +88,5 @@ gem "net-http"
 
 gem 'dropzonejs-rails'
 gem 'carrierwave'
+
+gem 'figaro'
