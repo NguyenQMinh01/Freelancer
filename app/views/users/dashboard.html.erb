@@ -28,7 +28,7 @@
                                     <%= form_for :user,url: users_edit_url(@user), action: :update, method: :post do |f| %>
                                     <div class = "file">
                                         <label class="button is-primary is-outlined is-fullwidth">
-                                            <%= f.file_field :avatar, class: "file-input",onchange: "this.form.submit();" %>
+                                            <%= f.file_field :avatar, class: "file-input", onchange: "this.form.submit();" %>
                                             <i class = "fas fa-upload"></i>&nbsp; Upload Avatar
                                         </label>
                                     </div>
@@ -64,7 +64,7 @@
                                                 <%= f.text_field :from, autofocus: true, autocomplete: 'form', class: 'input' %>
                                             </div>
                                     
-                                            <a class=" toogle button is-light" aria-controls="user-from">Cancel</a>
+                                            <a class=" toogle button is-light" aria-controls="user-from" onclick="hideElement('divFrom')">Cancel</a>
                                             <%= f.submit "Save", class: "button is-danger" %>
                                         <% end %>
                                     </div>
@@ -91,7 +91,7 @@
                                             <%= f.select :status , options_for_select([["Online", true],["Offline",false]]), class: 'genForm_dropBox' %>
                                         </div>
                                 
-                                        <a class=" toogle button is-light" aria-controls="user-status">Cancel</a>
+                                        <a class=" toogle button is-light" aria-controls="user-status"onclick="hideElement('divOnlineStatus')" >Cancel</a>
                                         <%= f.submit "Save", class: "button is-danger" %>
                                     <% end %>
                                 </div>
@@ -122,7 +122,7 @@
                                                 <%= f.text_area :about, autofocus: true, autocomplete: 'form', class: 'input' %>
                                             </div>
                                     
-                                            <a class=" toogle button is-light" aria-controls="user-about">Cancel</a>
+                                            <a class=" toogle button is-light" aria-controls="user-about" onclick="hideElement('divAbout')" >Cancel</a>
                                             <%= f.submit "Save", class: "button is-danger" %>
                                         <% end %>
                                     </div>
@@ -155,7 +155,7 @@
                                 
                                 <!-- Linked Account -->
                                 <article class="media"></article>
-
+                                <%= link_to "view client profile", user_show_path(current_user.id) , class: "button is-danger"%>
                             </div>
                         </div>
                     </div>
