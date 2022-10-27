@@ -9,9 +9,15 @@ Rails.application.routes.draw do
   
 
    get '/dashboard', to: 'users#dashboard'
-   get 'users/:id', to: 'users#show'
-   post 'users/edit', to: 'users#update' #users_edit_path
+   get 'users/:id', to: 'users#show', :as => :user_show #user_show_path
 
+ 
+   get '/selling_orders', to: 'orders#selling_orders'
+   get '/buying_orders', to: 'orders#buying_orders'
+
+   post 'users/edit', to: 'users#update' #users_edit_path
+   get '/orders/:id/complete', to: 'orders#complete', as: 'complete_order' #complete_order_path
+   
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
@@ -20,10 +26,10 @@ Rails.application.routes.draw do
   resources :gigs do
     member do
       delete :delete_photo
-      get :delete_photo
-      get :upload_photo
-      post :upload_photo
+      get :delete_photo  #gigs/15/delete_photo 
+      post :upload_photo #gigs/15/upload_photo 
     end
+    resources :orders, only: [:create] #gigs/15/orders
   end
 
   resources :users do
@@ -39,6 +45,6 @@ Rails.application.routes.draw do
   path: '',
   path_names:{sign_up: 'register', sign_in: 'login', edit: 'profile', sign_out: 'logout'},
   controllers: {omniauth_callbacks: 'omniauth_callbacks', registrations: 'registrations'}
-  #resources :users
+  resources :users
 end
  

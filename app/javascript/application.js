@@ -25,12 +25,12 @@ window.BulmaCarousel = require("bulma-extensions/bulma-carousel/dist/js/bulma-ca
 //  })
 
 
- $('#editlanguage').on('click',function() {
-    console.log(123)
-    var div = document.getElementsById("languages")
-    div.removeClass("is-hidden").addClass("is-visible")
+//  $('#editlanguage').on('click',function() {
+//     console.log(123)
+//     var div = document.getElementsById("languages")
+//     div.removeClass("is-hidden").addClass("is-visible")
 
- })
+//  })
 
  
 

@@ -52,3 +52,6 @@ rails g controller Gigs new create edit update show
 
 * yarn add bulma-extensions
 
+* Create order
+* rails generate migration enable_pgcrypto_extension
+

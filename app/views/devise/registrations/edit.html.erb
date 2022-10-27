@@ -41,7 +41,13 @@
               <div class="form-inputs">
                 <%= f.input :password_confirmation, autocomplete: "new-password", class: "input " %> <br>
               </div>
+
+              <div class="form-inputs"> 
+                <%= f.label :current_password, class: "label" %> <i>(we need your current password)</i><br />
+                <%= f.input :current_password, autocomplete: "current-password", class: "input " %> <br>
+              </div>
             
+
              
             
               <div class="actions">

@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.0.4"
+ruby "3.1.2"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.4"
@@ -73,7 +73,7 @@ end
 
 gem 'jquery-rails'
 gem 'bulma-rails', '~>0.7.4'
-gem 'bulma-extensions-rails', '~>1.0.30'
+gem 'bulma-extensions-rails', '~>1.0.3'
 gem 'devise'
 gem 'noty-rails'
 gem 'omniauth'
@@ -84,8 +84,6 @@ gem 'omniauth-google-oauth2'
 gem "omniauth-rails_csrf_protection", "~> 1.0"
 gem 'faker'
 gem "net-http"
-
-
 gem 'dropzonejs-rails'
 gem 'carrierwave'
 
