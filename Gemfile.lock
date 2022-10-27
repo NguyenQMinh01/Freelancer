@@ -304,7 +304,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap
-  bulma-extensions-rails (~> 1.0.30)
+  bulma-extensions-rails (~> 1.0.3)
   bulma-rails (~> 0.7.4)
   capybara
   carrierwave
