@@ -26,6 +26,15 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :users do
+    # member do
+    #   get :confirm_email
+    # end
+    collection do
+      get :confirm_email
+    end
+  end
+
   devise_for :users,
   path: '',
   path_names:{sign_up: 'register', sign_in: 'login', edit: 'profile', sign_out: 'logout'},

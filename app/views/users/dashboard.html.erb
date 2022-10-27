@@ -64,7 +64,7 @@
                                                 <%= f.text_field :from, autofocus: true, autocomplete: 'form', class: 'input' %>
                                             </div>
                                     
-                                            <a class=" toogle button is-light" aria-controls="user-from">Cancel</a>
+                                            <a class=" toogle button is-light" onclick="hideElement('divFrom')" aria-controls="user-from">Cancel</a>
                                             <%= f.submit "Save", class: "button is-danger" %>
                                         <% end %>
                                     </div>
@@ -88,10 +88,10 @@
                                 <div hidden class = "content" id="divOnlineStatus">
                                     <%= form_for :user, url: users_edit_url(@user), action: :update, method: :post, html: {id: 'user-status', class: ''} do |f| %>
                                         <div class= 'field'>
-                                            <%= f.select :status , options_for_select([["Online", true],["Offline",false]]), class: 'genForm_dropBox' %>
+                                            <%= f.select :status, [["Online", true],["Offline",false]], {class: 'genForm_dropBox'}, {style: 'width:100%;height:40px;font-family: Arial;font-size: 15px;'} %>
                                         </div>
                                 
-                                        <a class=" toogle button is-light" aria-controls="user-status">Cancel</a>
+                                        <a class=" toogle button is-light" onclick="hideElement('divOnlineStatus')" aria-controls="user-status">Cancel</a>
                                         <%= f.submit "Save", class: "button is-danger" %>
                                     <% end %>
                                 </div>
@@ -122,7 +122,7 @@
                                                 <%= f.text_area :about, autofocus: true, autocomplete: 'form', class: 'input' %>
                                             </div>
                                     
-                                            <a class=" toogle button is-light" aria-controls="user-about">Cancel</a>
+                                            <a class=" toogle button is-light" onclick="hideElement('divAbout')" aria-controls="user-about">Cancel</a>
                                             <%= f.submit "Save", class: "button is-danger" %>
                                         <% end %>
                                     </div>
@@ -145,7 +145,7 @@
                                                 <%= f.text_field :language, autofocus: true, autocomplete: 'form', class: 'input' %>
                                             </div>
                                     
-                                            <a class=" toogle button is-light" aria-controls="user-language">Cancel</a>
+                                            <a class=" toogle button is-light" onclick="hideElement('divLanguage')" aria-controls="user-language">Cancel</a>
                                             <%= f.submit "Save", class: "button is-danger" %>
                                         <% end %>
                                     </div>

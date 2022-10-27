@@ -5,12 +5,11 @@ class User < ApplicationRecord
   has_many :gigs
   
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, 
+         :recoverable, :rememberable, :validatable, :confirmable,
          :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
   validates :full_name, presence: true, length: { maximum: 50 }
   validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }
-        
- 
+  validates :email, uniqueness: true
 
   def self.from_omniauth(auth)
       user = User.where(email: auth.info.email).first

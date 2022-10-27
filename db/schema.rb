@@ -91,6 +91,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_20_041623) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string "unconfirmed_email"
     t.string "full_name"
     t.string "from"
     t.text "about"
