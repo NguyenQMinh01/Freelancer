@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  # get 'requests/index'
+  # get 'requests/new'
+  # get 'requests/edit'
+  # get 'requests/list'
+  # get 'requests/show'
   root "pages#home"
   
   # get 'gigs/new'
@@ -18,6 +23,7 @@ Rails.application.routes.draw do
    post 'users/edit', to: 'users#update' #users_edit_path
    get '/orders/:id/complete', to: 'orders#complete', as: 'complete_order' #complete_order_path
    
+   get 'all-requests', to: 'requests#list'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
@@ -31,6 +37,16 @@ Rails.application.routes.draw do
     end
     resources :orders, only: [:create] #gigs/15/orders
   end
+
+  resources :users do
+    # member do
+    #   get :confirm_email
+    # end
+    collection do
+      get :confirm_email
+    end
+  end
+  resources :requests
 
   devise_for :users,
   path: '',
