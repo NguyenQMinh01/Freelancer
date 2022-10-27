@@ -62,9 +62,9 @@
                         <div class="tabs is-fullwidth" id="tabs">
                             <ul>
                                 <% Pricing.pricing_types.each do |key, value|%>
-                                <li class="tab <%= 'is-active' if value  == 0 %> "
+                                <li onclick="switch_tab()" class="tab<%= ' is-active' if value  == 0 %>"
                                              data-tab="<%= key %>"style = "<%= 'display: none' if @gig.has_single_pricing && value != 0 %>" >
-                                    <a><%=  key.capitalize %></a>
+                                    <a><%= key.capitalize %></a>
                                 </li>
                                 <% end %>
                             </ul>
@@ -156,7 +156,7 @@
         slidesToShow: 1
     })
 
-    $(document).ready(function(){
+    function switch_tab(){
         $('#tabs li').on('click', function(){
             var type = $(this).data('tab');
 
@@ -165,5 +165,16 @@
             $('.tab-content').hide()
             $('#tab-' + type).show();
         })
-    })
+    }
+
+    // $(document).ready(function(){
+    //     $('#tabs li').on('click', function(){
+    //         var type = $(this).data('tab');
+
+    //         $('#tabs li').removeClass('is-active');
+    //         $(this).addClass('is-active');
+    //         $('.tab-content').hide()
+    //         $('#tab-' + type).show();
+    //     })
+    // })()
 </script>
