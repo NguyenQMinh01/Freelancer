@@ -7,6 +7,7 @@ class RequestsController < ApplicationController
   
   
   def index
+    @requests = current_user.requests
   end
 
   def new
@@ -25,6 +26,11 @@ class RequestsController < ApplicationController
   def edit
   end
 
+  def destroy 
+    @request.destroy
+    redirect_to requests_path, notice: "Removed Success"
+  end
+
   def show
   end
 
@@ -32,10 +38,14 @@ class RequestsController < ApplicationController
   end
 
   def update
+    if @request.update(request_params)
+      redirect_to requests_path, notice: "Save success"
+    else
+      redirect_to request.referrer, flash: {error: @request.errors.full_messages.join(', ')}
+    end
   end
 
-  def destroy 
-  end
+
 
   private
 

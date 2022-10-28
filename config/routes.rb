@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   # get 'gigs/edit'
   # get 'gigs/update'
   # get 'gigs/show'
+
+  delete 'requests/delete' 
   
 
    get '/dashboard', to: 'users#dashboard'
@@ -46,6 +48,7 @@ Rails.application.routes.draw do
       get :confirm_email
     end
   end
+
   resources :requests
 
   devise_for :users,

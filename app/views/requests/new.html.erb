@@ -4,8 +4,58 @@
             <p class="title is-4 has-text-centered"> What Services Are You Looking For? </p>
 
                 <%= form_for @request do |f|%>
+                <div class="filed">
+                    <label class="label">Title (*) </label>
+                    <%= f.text_field :title , placeholder: "I request...", class: "input" %>
+                </div>
+                <div class="filed">
+                    <label class="label">Desription (*) </label>
+                    <%= f.text_area :description , placeholder: "I'm looking for...", class: "textarea" %>
+                </div>
+                <div class="filed">
+                    <label class="label">Choose a category </label>
+                    <div class="select is-fullwidth">
+                        <%= f.select(:category_id, options_for_select(@categories.map{ |c| [c.name, c.id] }))%>
+                    </div>
+                </div>
+
+                <div class="filed">
+                    <label class="label">Delivery  </label>
+                    <%= f.text_field :delivery , placeholder: "1-30 days...", class: "input" %>
+                </div>
+                <div class="filed">
+                    <label class="label">Budget  </label>
+                    <%= f.text_field :budget , placeholder: "$5 minium...", class: "input" %>
+                </div>
+
+                <div class="filed">
+                    <label class="label">Upload attachment (Optional)  </label>
+                    <div class="file is-warning has-name">
+                        <label class="file-label" , onclick="choose_file()">
+                            <%= f.file_field :attachment_file, class: "file-input"  %>
+                            <span class="file-cta"> <span class = "file-label"> Choose a file </span> </span>
+                            <span class = "file-name" id = "file-name">No file selected</span>
+                        </label>
+                    </div>
+                </div> 
+
+                <div class="field has-text-centered">
+                    <%= f.submit 'Post request', class: "button is-primary" %>
+                </div>
                 <% end %>
          
         </div>
     </div>
 </section>
+
+<script>
+    function choose_file(){
+        var file = $('.file-input');
+        file.change(function(e){
+            if (file[0].files.length > 0){
+                var attachment = file[0].files[0];
+                $('.file-name').text(attachment.name + ' (' + attachment.size + ' bytes)');
+            }
+        })
+    }
+</script>
