@@ -32,3 +32,8 @@
 
 # Ignore application configuration
 /config/application.yml
+
+# Ignore migrate
+/db/20221014022812_devise_create_users.rb
+/db/20221020011039_create_categories.rb
+/db/20221020041540_create_gigs.rb
