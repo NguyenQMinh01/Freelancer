@@ -35,6 +35,13 @@ class RequestsController < ApplicationController
   end
 
   def list
+    @category_id = params[:category]
+
+    if @category_id.present?
+      @requests = Request.where(category_id: @category_id)
+    else
+      @requests = Request.all
+    end
   end
 
   def update

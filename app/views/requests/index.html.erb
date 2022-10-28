@@ -16,7 +16,9 @@
             </thead>
             <tbody>
                 <% if @requests.blank? %>
+                <tr>
                     <td colspan = "4" class="has-text-centered"><h1>NOTHING TO SHOW HERE</h1></td>
+                </tr>
                 <% end %>
                 <% @requests.each do |r| %>
                 <tr>
