@@ -5,5 +5,7 @@ class AddColumnsToUser < ActiveRecord::Migration[7.0]
     add_column :users, :about, :text
     add_column :users, :language, :string
     add_column :users, :status, :boolean , defailt: false
+   
+
   end
 end
