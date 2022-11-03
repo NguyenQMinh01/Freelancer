@@ -33,11 +33,11 @@
 # Ignore application configuration
 /config/application.yml
 
-<<<<<<< HEAD
+
 /config/database.yml
-=======
+
 # Ignore migrate
 /db/20221014022812_devise_create_users.rb
 /db/20221020011039_create_categories.rb
 /db/20221020041540_create_gigs.rb
->>>>>>> 5e061330bf8c013ffa50817ca0fda3ac714cc14e
+
