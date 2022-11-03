@@ -66,3 +66,7 @@ rails g controller Gigs new create edit update show
 * Tạo nhánh dev local rồi pull code từ origin dev về để đồng bộ code ở dev local và origin dev
 * Trước khi push lên nhánh dev phải add -> commit xong rồi pull code về rồi push
 * Fix hay create 1 chức năng ở nhánh local tự tạo thì phải add commit -> push lên origin (nhánh local tự tạo) sau đó qua nhánh dev pull code origin dev xuống (để đồng bộ) -> qua nhánh local tự tạo rebase dev -> checkut lại dev rồi merge (trường hợp không checkut qua dev đc thì ở nhánh local merger vs dev luôn sau khi merge thì add rồi commit) -> checkout dev rồi merge lại ve test để có xung đột thì config ->  cuối cùng add . -> commit  -> push
+
+
+* Create offer
+rails g model Offer note:text amount:integer days:integer status:integer request:references user:references

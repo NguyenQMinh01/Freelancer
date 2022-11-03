@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_27_093115) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_02_105226) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -72,6 +72,19 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_27_093115) do
     t.index ["user_id"], name: "index_gigs_on_user_id"
   end
 
+  create_table "offers", force: :cascade do |t|
+    t.text "note"
+    t.integer "amount"
+    t.integer "days"
+    t.integer "status", default: 0
+    t.bigint "request_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["request_id"], name: "index_offers_on_request_id"
+    t.index ["user_id"], name: "index_offers_on_user_id"
+  end
+
   create_table "orders", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.date "due_date"
     t.string "title"
@@ -84,8 +97,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_27_093115) do
     t.bigint "seller_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "request_id"
     t.index ["buyer_id"], name: "index_orders_on_buyer_id"
     t.index ["gig_id"], name: "index_orders_on_gig_id"
+    t.index ["request_id"], name: "index_orders_on_request_id"
     t.index ["seller_id"], name: "index_orders_on_seller_id"
   end
 
@@ -142,7 +157,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_27_093115) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "gigs", "categories"
   add_foreign_key "gigs", "users"
+  add_foreign_key "offers", "requests"
+  add_foreign_key "offers", "users"
   add_foreign_key "orders", "gigs"
+  add_foreign_key "orders", "requests"
   add_foreign_key "orders", "users", column: "buyer_id"
   add_foreign_key "orders", "users", column: "seller_id"
   add_foreign_key "pricings", "gigs"

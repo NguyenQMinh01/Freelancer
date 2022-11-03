@@ -19,7 +19,7 @@
     <%= form_for "Sign in with #{OmniAuth::Utils.camelize(provider)}",
       url: omniauth_authorize_path(resource_name, provider),
       method: :post,
-      data: {turbo: "false"} do |f| %>
+      data: {turbo: "true"} do |f| %>
         <%= f.submit "Sign in with #{OmniAuth::Utils.camelize(provider)}" %><br />
     <% end %>  
   <% end %>

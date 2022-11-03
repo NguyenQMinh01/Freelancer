@@ -11,7 +11,7 @@
             <div class="form-inner">
 
             <div class= "field"> 
-               <%= f.input :email,type: 'text',autofocus: false,required: true, input_html: { autocomplete: "email", style: 'height: 40px' }%>
+               <%= f.input :email,type: 'text',autofocus: false,required: false, input_html: { autocomplete: "email", style: 'height: 40px' }%>
             </div>
 
             </div>
@@ -42,10 +42,10 @@
             <% end %>
          </div>
          <div class="or"></div>
-            <div class = "goolge">
+            <div class = "google">
                <%= render "devise/shared/sign_in_google" %>
             </div>
-         
+      
             <div class = "facebook">
                <%= render "devise/shared/sign_in_facebook" %>
             </div>

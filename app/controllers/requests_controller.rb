@@ -1,6 +1,6 @@
 class RequestsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_request, except: [:new, :create, :index,:list]
+  before_action :set_request, except: [:new, :create, :index,:list, :my_offers]
   before_action :is_authorized, only: [:edit, :update, :destroy]
   before_action :set_categories, only: [:new, :edit, :list]
     
@@ -32,6 +32,7 @@ class RequestsController < ApplicationController
   end
 
   def show
+    #@request = Request.all
   end
 
   def list
@@ -44,6 +45,7 @@ class RequestsController < ApplicationController
     end
   end
 
+
   def update
     if @request.update(request_params)
       redirect_to requests_path, notice: "Save success"
@@ -52,7 +54,13 @@ class RequestsController < ApplicationController
     end
   end
 
+  def offers
+    @offers = @request.offers
+  end
 
+  def my_offers
+    @offers = current_user.offers 
+  end
 
   private
 
