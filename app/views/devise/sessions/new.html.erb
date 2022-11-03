@@ -5,6 +5,7 @@
             <div class="title login">Freelancer Login </div>
          </div>
          <div class="form-container" >
+<<<<<<< HEAD
             <form data-turbo= "false" class="simple_form new_user" id="new_user" action="/login" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="L3YObP7w3R-MvKvdhqZiLdAP6Wb5WjlKOOSxRJGkKE758NI_gE1iJlNB4WX928nNf4UqAFtBn71hI4DcKM8W3A" autocomplete="off" />  
                <%= render "devise/shared/error_messages"%> 
                <%= render "shared/flashes"%>
@@ -16,6 +17,22 @@
                         oninput="InvalidMsgEmail(this)" autocomplete="email" style="height: 40px" type="email" value="" name="user[email]" id="user_email" />
                      </div>
                   </div>
+=======
+            <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name),data: { turbo: false }) do |f| %>
+            <%= f.error_notification %>
+
+            <div class="form-inner">
+
+            <div class= "field"> 
+               <%= f.input :email,type: 'text',autofocus: false,required: false, input_html: { autocomplete: "email", style: 'height: 40px' }%>
+            </div>
+
+            </div>
+
+            <div class="form-inner">
+               <div class="field">
+               <%= f.input :password, require: true ,input_html: { autocomplete: "current-password", style: 'height: 40px' } %>
+>>>>>>> 5e061330bf8c013ffa50817ca0fda3ac714cc14e
                </div>
 
                <div class="form-inner">
@@ -47,10 +64,10 @@
             </form>         
          </div>
          <div class="or"></div>
-            <div class = "goolge">
+            <div class = "google">
                <%= render "devise/shared/sign_in_google" %>
             </div>
-         
+      
             <div class = "facebook">
                <%= render "devise/shared/sign_in_facebook" %>
             </div>

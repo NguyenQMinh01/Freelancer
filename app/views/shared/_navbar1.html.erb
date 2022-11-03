@@ -6,7 +6,6 @@
             <a class="navbar-item">tasklist</a>
             <a class="navbar-item">myproject</a>
             <a class="navbar-item">inbox</a>
-            <a class="navbar-item">feedback</a>
             <a class="navbar-item">free credit</a>
             <div class="navbar-item has-dropdown is-hoverable">
                 <a class="navbar-link">Selling</a>
@@ -16,11 +15,23 @@
                 
               </div>
               <div class="navbar-item has-dropdown is-hoverable">
-                <a class="navbar-link">Buying</a>
+                <a class="navbar-link">(Freelancer)Buying</a>
                     <div class="navbar-dropdown">
-                        <a class="navbar-item">Create new gig </a>
-                        <a class="navbar-item">Jobs</a>
+                        <%= link_to 'Freelancer Post Request', new_request_path, class: "navbar-item"%>
+                        <%= link_to 'Manage Request', requests_path, class: "navbar-item"%>
+
                         <a class="navbar-item">Contact</a>
+                        <hr class="navbar-divider">
+                        <a class="navbar-item">Report an issue</a>
+                    </div>
+                
+              </div>
+
+              <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link">(Freelancer) Requests</a>
+                    <div class="navbar-dropdown">
+                        <%= link_to 'Active Request', all_requests_path, class: "navbar-item"%>
+                        <%= link_to 'Offers sent', my_offers_path, class: "navbar-item"%>
                         <hr class="navbar-divider">
                         <a class="navbar-item">Report an issue</a>
                     </div>
