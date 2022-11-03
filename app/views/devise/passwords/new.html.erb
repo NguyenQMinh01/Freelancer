@@ -1,23 +1,27 @@
 <div class="container">
-  <div class="container-login">
-    <div class="wrapper">
+  <div class="container-login" style="margin-top: 5%">
+    <div class="wrapper ">
       <div class="title-text">
         <div class="title login">Forgot Password</div>
       </div>
-      <div class="form-cointainer">
-        <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-          <%= render "devise/shared/error_messages", resource: resource %>          
-            <div class="form-inner">
-              <div class="field-email">
-                <%= f.label :email %><br/>
-                <%= f.email_field :email, autofocus: true, input_html: { autocomplete: "email"}%>
-              </div>          
+      <div class="form-container">
+        <form class="new_user" id="new_user" action="/password" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="JXR-QgGMoU5HHmxRs_CXHJU8QFCtdXbeWco-5hM2GRexivTx-NiqWz8XqNCYcs4mxl5f4qty3IytC0xqnhafPw" autocomplete="off" />
+                    
+          <div class="form-inner">
+            <div class= "field"> 
+              <div class="form-group email optional user_email">
+                <label class="email optional" for="user_email">Email</label>
+                <input required class="form-control string email optional" oninvalid="InvalidMsgEmail(this)"
+                oninput="InvalidMsgEmail(this)" autocomplete="email" style="height: 40px" type="email" value="" name="user[email]" id="user_email" />
+              </div>       
             </div>
-            <%= f.submit "Send me reset password instructions", class: "button is-hovered is-fullwidth m-t-10 m-b-10 text-white",
-            style: 'background: -webkit-linear-gradient(left,#003366,#004080,#0059b3
-                    , #0073e6)'%>
-        <% end %>
-        </div>
+          </div>
+          <br/>
+          <div class="actions">
+            <input type="submit" name="commit" value="Send me reset password instructions" class="button is-hovered is-fullwidth m-t-10 m-b-10 text-white" style="background: -webkit-linear-gradient(left,#003366,#004080,#0059b3
+                    , #0073e6)" data-disable-with="Send me reset password instructions" />
+          </div>
+        </form>    
         <div class="or"></div>
           <div class = "goolge">
             <%= render "devise/shared/sign_in_google" %>
@@ -33,4 +37,18 @@
     </div>
   </div>
 </div>
+<script>
+    function InvalidMsgEmail(textbox) {
+        if (textbox.value === '') {
+            textbox.setCustomValidity("Email can't be blank");
+        } else if (textbox.validity.typeMismatch){
+            textbox.setCustomValidity('Please enter a valid email address');
+        } else {
+           textbox.setCustomValidity('');
+        }
+
+        return true;
+    };
+</script>
+
 

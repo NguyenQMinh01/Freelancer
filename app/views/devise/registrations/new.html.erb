@@ -1,46 +1,107 @@
-<section class="hero is-primary is-fullheight">
-  <div class="hero-body">
-    <div class="container">
-      <div class="columns is-centered">
-        <div class="column is-6-table is-6-destop is-6-widescreen">
-          <div class="box">
-
-            <div class="field has-text-centered">
-              <strong>Sign Up</strong>
+<div class="container">
+  <div class="container-login"  style="margin-top: 5%">
+    <div class="wrapper ">
+      <div class="title-text">
+        <div class="title login">Freelancer Sign Up</div>
+      </div>
+      <div class="form-container" >
+        <form data-turbo="false" class="simple_form new_user" id="new_user" action="/" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="HIcxL56cqpLdC85IUoaAOUWxZgyZ7oG2nIlYYdm3KuPq6bPa3d9VQ2po8zoH_T3_Q1BexlPRDjNXaiP3nN2jaw" autocomplete="off" />
+          <%= render "devise/shared/error_messages"%> 
+          <%= render "shared/flashes"%>
+          <div class="form-inner">
+            <div class="field">
+              <div class="form-group string optional user_full_name">
+                <label class="string optional" for="user_full_name">Full name</label>
+                <input required class="form-control string optional" oninvalid="this.setCustomValidity('Fullname cannot be blank')" oninput="this.setCustomValidity('')" autocomplete="full_name" style="height: 40px" autofocus="autofocus" type="text" name="user[full_name]" id="user_full_name" />
+              </div>
+            </div>
+          </div>
+          <div class="form-inner">
+            <div class="field">
+              <div class="form-group email optional user_email">
+                <label class="email optional" for="user_email">Email</label>
+                <input required class="form-control string email optional" oninvalid="InvalidMsgEmail(this)"
+                      oninput="InvalidMsgEmail(this)" autocomplete="email" style="height: 40px" autofocus="autofocus" type="email" value="" name="user[email]" id="user_email" />
+              </div>
+            </div>
+          </div>
+          <div class="form-inner">
+            <div class="field">
+              <div class="form-group password optional user_password">
+                <label class="password optional" for="user_password">Password</label>
+                <input required class="form-control password optional" oninvalid="InvalidMsgPassword(this)"
+                      oninput="InvalidMsgPassword(this)" autocomplete="new-password" style="height: 40px" type="password" name="user[password]" id="user_password" />
+              </div>
+            </div>
+          </div>
+        
+          <div class="form-inner">
+            <div class="field">
+              <div class="form-group password optional user_password_confirmation">
+                <label class="password optional" for="user_password_confirmation">Password confirmation</label>
+                <input required class="form-control password optional" oninvalid="InvalidMsgPasswordConfirm(this)"
+                      oninput="InvalidMsgPasswordConfirm(this)" autocomplete="new-password" style="height: 40px" type="password" name="user[password_confirmation]" id="user_password_confirmation" />
+              </div>
+            </div>
+          </div>
+          <br/>
+          <div class="actions">
+            <input type="submit" name="commit" value="Sign up" class="button is-success is-fullwidth m-t-10 m-b-10" data-disable-with="Sign up" />
+          </div>  
+        </form>
+        <div class="or"></div>
+            <div class = "goolge">
+               <%= render "devise/shared/sign_in_google" %>
+            </div>
+         
+            <div class = "facebook">
+               <%= render "devise/shared/sign_in_facebook" %>
             </div>
 
-              <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), local: true, data: { turbo: false }) do |f| %>
-              
-                <%= f.error_notification %>
-                <div class="form-inputs">
-                  <%= f.input :full_name, autofocus: true, autocomplete: "full_name" , class: "input" %>
-                </div>
-
-
-                <div class="form-inputs">
-                  <%= f.input :email, autofocus: true,required: true, input_html: { autocomplete: "email" }, class: "input" %>
-                </div>
-              
-                <div class="form-inputs">
-                  <% if @minimum_password_length %>
-                  <em>(<%= @minimum_password_length %> characters minimum)</em>
-                  <% end %><br />
-                  <%= f.input :password, autocomplete: "new-password", class: "input" %>
-                </div>
-              
-                <div class="form-inputs">
-                  <%= f.input :password_confirmation, autocomplete: "new-password", class: "input " %> <br>
-                </div>
-              
-                <div class="actions">
-                  <%= f.submit "Sign up", class: "button is-danger is-fullwidth m-t-10 m-b-10" %>
-                </div>
-              <% end %>  
-              <%= render "devise/shared/links" %>
-          </div>
-        </div>
+            <div class="sign-in" style="text-align: center">
+               <p>Already have an account? <%= link_to "Sign in", new_session_path(resource_name) %> </p> 
+            </div>
+         </div> 
       </div>
     </div>
   </div>
-</section>
+</div>
+<script>
+    function InvalidMsgEmail(textbox) {
+        if (textbox.value === '') {
+            textbox.setCustomValidity("Email can't be blank");
+        } else if (textbox.validity.typeMismatch){
+            textbox.setCustomValidity('Please enter a valid email address');
+        } else {
+           textbox.setCustomValidity('');
+        }
+
+        return true;
+    };
+
+    function InvalidMsgPassword(textbox) {
+      if (textbox.value === '') {
+            textbox.setCustomValidity("Password can't be blank");
+        } else if (textbox.value.length < 6){
+            textbox.setCustomValidity("Please lengthen this text to 6 characters or more");
+        } else {
+           textbox.setCustomValidity('');
+        }
+
+        return true;
+    }
+
+    function InvalidMsgPasswordConfirm(textbox) {
+      password = document.getElementById('user_password').value;
+      if (textbox.value === '') {
+            textbox.setCustomValidity("Password confirmation can't be blank");
+        } else if (textbox.value !== password){
+            textbox.setCustomValidity("The password confirmation does not match");
+        } else {
+           textbox.setCustomValidity('');
+        }
+
+        return true;
+    }
+</script>
 
