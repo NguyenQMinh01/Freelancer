@@ -24,15 +24,18 @@ ActiveAdmin.register Gig do
 
   # Các thuộc tính sẽ được hiển thị để Admin nhập giá trị
   
-  # form do |f|
-  #   f.inputs "Gigs Details" do
-  #     f.input :name
-  #     f.input :image
-  #     f.input :description
-  #     f.input :price
-  #     f.input :year
-  #   end
-  #   f.actions
-  # end
-
+  form do |f|
+    f.inputs "Gigs Details" do
+      f.input :title
+      f.input :video
+      f.input :active
+      f.input :has_single_pricing
+      f.input :user_id
+      f.input :category_id
+      f.input :created_at
+      f.input :update_at
+    end
+    f.actions
+  end 
+  
 end
