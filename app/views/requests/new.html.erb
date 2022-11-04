@@ -18,7 +18,7 @@
                         <%= f.select(:category_id, options_for_select(@categories.map{ |c| [c.name, c.id] }))%>
                     </div>
                 </div>
-
+                
                 <div class="filed">
                     <label class="label">Delivery  </label>
                     <%= f.text_field :delivery , placeholder: "1-30 days...", class: "input" %>
