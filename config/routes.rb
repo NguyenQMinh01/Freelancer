@@ -25,6 +25,7 @@ Rails.application.routes.draw do
    get 'all_requests', to: 'requests#list'
    get '/request_offers/:id', to: 'requests#offers', as: 'request_offers'  #request_offers_path
    get '/my_offers', to: 'requests#my_offers'
+   get '/search', to: 'pages#search'
 
    post 'users/edit', to: 'users#update' #users_edit_path
    post '/offers', to: 'offers#create'
@@ -48,9 +49,6 @@ Rails.application.routes.draw do
   end
 
   resources :users do
-    # member do
-    #   get :confirm_email
-    # end
     collection do
       get :confirm_email
     end

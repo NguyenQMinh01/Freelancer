@@ -32,16 +32,54 @@
 #     )
 #   end
 
+    # 5.times do
+    #     random_user = User.all.sample(1)[0]
+    #     category = Category.all.sample(1)[0]
+    #     request = Request.create(
+    #         title: Faker::Job.title,
+    #         description: Faker::Quote.matz,
+    #         budget: Faker::Number.between(from: 5, to: 50),
+    #         delivery: Faker::Number.between(from: 5, to: 50),
+    #         user_id: random_user.id,
+    #         category_id: category.id
+    #     )
+    # end
+
     5.times do
         random_user = User.all.sample(1)[0]
         category = Category.all.sample(1)[0]
-        request = Request.create(
-            title: Faker::Job.title,
+        gig = Gig.create(
+            title: Faker::Job.unique.title,
             description: Faker::Quote.matz,
-            budget: Faker::Number.between(from: 5, to: 50),
-            delivery: Faker::Number.between(from: 5, to: 50),
+            active: Faker::Boolean.boolean,
             user_id: random_user.id,
             category_id: category.id
+        )
+        number = Faker::Number.between(from: 1, to: 3)
+        gig.photos.attach(
+            io: File.open("app/assets/images/gig_cover_#{number}.jpg"),
+            filename: "category_#{number}.jpeg"
+        )    
+        gig.pricings.create(
+            pricing_type: 0,
+            title: Faker::Job.title,
+            description: Faker::Quote.matz,
+            price: Faker::Number.between(from: 1, to: 9),
+            delivery_time: Faker::Number.between(from: 20, to: 30),
+        )
+        gig.pricings.create(
+            pricing_type: 1,
+            title: Faker::Job.title,
+            description: Faker::Quote.matz,
+            price: Faker::Number.between(from: 10, to: 19),
+            delivery_time: Faker::Number.between(from: 10, to: 19),
+        )
+        gig.pricings.create(
+            pricing_type: 2,
+            title: Faker::Job.title,
+            description: Faker::Quote.matz,
+            price: Faker::Number.between(from: 20, to: 35),
+            delivery_time: Faker::Number.between(from: 1, to: 10),
         )
     end
 

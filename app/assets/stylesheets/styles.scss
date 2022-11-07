@@ -62,5 +62,10 @@ $sides: (top, bottom, left, right);
     margin-top: 1.4rem;
   }
 
+  .pagination-link.is-current{
+    background-color: #00d1b2;
+    border-color: #00d1b2;
+  }
+
  
 
