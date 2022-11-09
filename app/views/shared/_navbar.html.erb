@@ -67,7 +67,7 @@
     </div>
 </nav>
 
-<% if (user_signed_in?) && !current_page?(root_path) && !current_page?("/gigs/#{params[:id]}") && !current_page?("/users/#{params[:id]}" )%>
+<% if (user_signed_in?) && !current_page?(root_path) && !current_page?(search_path) && !current_page?("/gigs/#{params[:id]}") && !current_page?("/users/#{params[:id]}" )%>
     <%= render 'shared/navbar1' %>
 <% end %>
 
