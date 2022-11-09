@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   # get 'gigs/update'
   # get 'gigs/show'
 
-  delete 'requests/delete' 
+   delete 'requests/delete' 
   
 
    get '/dashboard', to: 'users#dashboard'
