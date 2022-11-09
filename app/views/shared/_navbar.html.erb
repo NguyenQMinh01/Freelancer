@@ -32,7 +32,7 @@
                         <% else %>
                             <div class="navbar-item has-dropdown is-hoverable" style="">
                                 <a class="navbar-link">
-                                    <figure class="image is-24x24 m-r-5">
+                                    <figure class="image is-24x24 m-r-5 avatar <%= current_user.status ? "online" : "offline"%>">
                                         <%= image_tag avatar_url(current_user), class: "is-rounded" %>
                                     </figure>
                                     <%= current_user.full_name %>
@@ -57,7 +57,7 @@
             </div>
         </div>
     </div>
-    <% if (user_signed_in?) && !current_page?(root_path) && !current_page?("/gigs/#{params[:id]}")%>       
+    <% if (user_signed_in?) && !current_page?(root_path) && !current_page?("/gigs/#{params[:id]}") && !current_page?(search_path) %>       
         <br/>
         <%= render 'shared/navbar1' %>
     <% end %>
