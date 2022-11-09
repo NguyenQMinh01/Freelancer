@@ -12,7 +12,7 @@
                         <div class="card">
 
                             <!-- Avatar -->
-                            <div class="card-content is-horizontal-center is-flex">
+                            <div class="card-content is-horizontal-center is-flex" style=" justify-content: center;">
                                 <figure class="image is-128x128">
                                     <%= image_tag avatar_url(current_user), class: "is-rounded", style:"border: 2px solid black;" %>
                                 </figure>
@@ -33,7 +33,7 @@
                                     <% end %>
                                 </div>
                                 <hr class="h-10">
-                                <p style="text-align: right">Edit <i class="toggle far fa-edit" onclick="hideElements()" aria-controls="user-from"></i></p>
+                                <p style="text-align: right;"><strong>Edit <i class="toggle far fa-edit" onclick="hideElements()" aria-controls="user-from"></i></strong></p>
                                 <br/>
                                 <!-- Member -->
                                 <article class="media">
@@ -54,10 +54,10 @@
                                             </div>
                                     </div>
 
-                                    <div hidden class = "content"  id="divFrom">
+                                    <div class = "content"  id="divFrom"  style="display: none">
                                         
                                         <div class= 'field'>
-                                            <%= f.text_field :from, autofocus: true, autocomplete: 'form', class: 'input', value: current_user.from %>
+                                            <%= f.text_field :from, autofocus: true, autocomplete: 'form', class: 'input', id: 'text_from', value: current_user.from %>
                                         </div>
                                     </div>
                                 
@@ -76,7 +76,7 @@
                                     </div>
                                 </div>
 
-                                <div hidden class = "content" id="divOnlineStatus">
+                                <div class = "content" id="divOnlineStatus"  style="display: none">
                                     <div class= 'field'>
                                         <%= f.select :status, [["Online", true, selected: current_user.status],["Offline", false, selected: !current_user.status]], {class: 'genForm_dropBox'}, {style: 'width:100%;height:40px;font-family: Arial;font-size: 15px;'} %>
                                     </div>
@@ -104,9 +104,9 @@
                                             </div>
                                     </div>
 
-                                    <div hidden class = "content" id="divAbout">
+                                    <div class = "content" id="divAbout" style="display: none">
                                         <div class= 'field'>
-                                            <%= f.text_field :about, autofocus: true, autocomplete: 'form', class: 'input', value: current_user.about %>
+                                            <%= f.text_field :about, autofocus: true, autocomplete: 'form', class: 'input', id: 'text_about', value: current_user.about %>
                                         </div>
                                     </div>
                                 </article>  
@@ -121,14 +121,15 @@
                                             </div>
                                     </div>
 
-                                    <div hidden class = "content" id="divLanguage">
+                                    <div class = "content" id="divLanguage" style="display: none">
                                         <div class= 'field'>
-                                            <%= f.text_field :language, autofocus: true, autocomplete: 'form', class: 'input', value: current_user.language %>
+                                            <%= f.text_field :language, autofocus: true, autocomplete: 'form', class: 'input', id: 'text_language', value: current_user.language %>
                                         </div>
-                                        <a class="toogle button is-hovered is-fullwidth m-t-10 m-b-10 text-white", style="background: -webkit-linear-gradient(left,#B80909,#D01818,#E71919,#F84C4C)" 
+                                        <div class="row" style="justify-content: center;">
+                                        <a class="toogle button is-hovered is-fullwidth m-t-10 m-b-10 text-white", style="background: -webkit-linear-gradient(left,#B80909,#D01818,#E71919,#F84C4C); width: 40%; margin-right: 5%" 
                                         onclick="hideElements()" aria-controls="user-language">Cancel</a>
-
-                                        <a id="submitInfo" onclick="submitInfo()" class="button is-hovered is-fullwidth m-t-10 m-b-10 text-white", style="background: -webkit-linear-gradient(left,#089617,#0CB91F,#0FD025,#15EF2C)">Save</a>
+                                        <a id="submitInfo" onclick="submitInfo()" class="button is-hovered is-fullwidth m-t-10 m-b-10 text-white", style="background: -webkit-linear-gradient(left,#089617,#0CB91F,#0FD025,#15EF2C); width: 40%">Save</a>
+                                        </div>
                                     </div>
 
                                 </article>
@@ -155,7 +156,7 @@
                             <%= link_to new_gig_path do %>
                             <div class="card">
 
-                                <div class="card-image card-content is-horizontal-center is-flex ">
+                                <div class="card-image card-content is-horizontal-center is-flex " style=" justify-content: center;">
                                     <figure class="image is-128x128 ">
                                         <!-- Plus Image Here -->
                                         <%= image_tag '106230_add_icon.png' %>
@@ -196,9 +197,9 @@
                                 <footer class="card-footer">
                                     <% basic_price = gig.pricings.find { |p| p.pricing_type == 'basic' } %>
 
-                                    <a class="has-text-danger is-block card-footer-item has-text-right">
+                                    <a class="has-text-danger is-block card-footer-item has-text-center">
                                         <% if !basic_price.nil? %>
-                                        <span class="small-title">STARTING AT</span> 
+                                        <span class="small-title">STARTING AT </span>
                                         <strong>$<%= basic_price.price  %></strong> 
                                         <% else %>
                                         <strong> 
@@ -225,6 +226,7 @@
         form.forEach((id) => {
             hideElement(id)
         });
+        fill_data();
     };
     function hideElement(id) {
         var x = document.getElementById(id);
@@ -234,6 +236,27 @@
             x.style.display = "block";
         };
     };
+    function fill_data(){
+        //var from = "<%=current_user.from%>"
+        
+        var text_from = document.getElementById("text_from");
+        var text_status = document.getElementById("user_status");
+        var text_about = document.getElementById("text_about");
+        var text_language = document.getElementById("text_language");
+
+        text_from.value = decodeHtml("<%=current_user.from%>")
+        text_status.value = decodeHtml("<%=current_user.status%>")
+        text_about.value = decodeHtml("<%=current_user.about%>")
+        text_language.value = decodeHtml("<%=current_user.language%>")
+    }
+
+    function decodeHtml(str) {
+        return str.replace("&amp;", '&')
+                   .replace("&lt;", '<')
+                   .replace("&gt;", '>')
+                   .replace("&quot;", '"')
+                   .replace("&#39;", "'");
+    }
 
     function submitInfo(){
         $.post($("#user-info").attr("action"), $("#user-info").serialize() + $("#user-info2").serialize(), function() {

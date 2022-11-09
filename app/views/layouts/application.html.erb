@@ -10,16 +10,15 @@
     <%= javascript_include_tag 'application'%>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
-  
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.2/css/bootstrap.min.css" integrity="sha512-CpIKUSyh9QX2+zSdfGP+eWLx23C8Dj9/XmHjZY2uDtfkdLGo0uY12jgcnkX9vXOgYajEKb/jiw67EYm+kBf+6g==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
     
   </head>
 <body>
-  <header>
-    <% unless (controller_name="passwords" && action_name=="update") || (controller_name="sessions" && action_name=="new") || (controller_name="users" && action_name=="create") || (controller_name="users" && action_name=="new") || (controller_name="passwords" && action_name=="edit") || current_page?("/register") || current_page?("/edit")  || current_page?("/login") || current_page?("/password/new") || current_page?("/password/edit")%> 
-      <%= render 'shared/navbar' %>
-    <% end %>
-  </header>
+
+  <!-- ***** Header Area Start ***** -->
+  <% unless (controller_name="passwords" && action_name=="update") || (controller_name="sessions" && action_name=="new") || (controller_name="users" && action_name=="create") || (controller_name="users" && action_name=="new") || (controller_name="passwords" && action_name=="edit") || current_page?("/register") || current_page?("/edit")  || current_page?("/login") || current_page?("/password/new") || current_page?("/password/edit")%> 
+    <%= render 'shared/navbar' %>
+  <% end %>
+  <!-- ***** Header Area End ***** -->
     
   <%= yield %>
   
