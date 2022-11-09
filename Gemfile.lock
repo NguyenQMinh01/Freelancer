@@ -357,6 +357,7 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   jquery-rails
+  kaminari
   net-http
   noty-rails
   omniauth

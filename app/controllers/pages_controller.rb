@@ -42,9 +42,8 @@ class PagesController < ApplicationController
     end
     
     @gigs = Gig.select("gigs.id, gigs.title, gigs.user_id, pricings.price AS price")
-            .joins(:pricings)
-            .where(query_condition)
-            .order(@sort)
+            .joins(:pricings).where(query_condition)
+            .order(@sort).page(params[:page]).per(6)
   end
 
 end
