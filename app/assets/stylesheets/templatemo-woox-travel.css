@@ -814,7 +814,7 @@ Banner Style
 #section-1 .content-slider .slider .banner .banner-inner-wrapper .learn-more-button a:hover {
   color: #22b3c1;
   border-color: #22b3c1;
-  transition: 0.1s;
+  transition: 0.3s;
 }
 #section-1 .content-slider .slider #top-banner-1 {
   background: url('https://career.gpo.vn/uploads/images/237684310/images/gpo-freelancer-xu-huong-lam-viec-cua-gioi-tre-3.jpeg') no-repeat center center;
@@ -861,7 +861,7 @@ Banner Style
   color: #f6eac5;
   font-weight: 400;
   cursor: pointer;
-  transition: all 0.1s;
+  transition: all 0.3s;
 }
 #section-1 .content-slider nav .controls label .progressbar {
   position: absolute;

@@ -21,7 +21,9 @@
   <!-- ***** Header Area End ***** -->
     
   <%= yield %>
-  
+  <% unless (controller_name="passwords" && action_name=="update") || (controller_name="sessions" && action_name=="new") || (controller_name="users" && action_name=="create") || (controller_name="users" && action_name=="new") || (controller_name="passwords" && action_name=="edit") || current_page?("/register") || current_page?("/edit")  || current_page?("/login") || current_page?("/password/new") || current_page?("/password/edit")%> 
+    <%= render 'shared/footer' %>
+  <% end %>
   <script src ="https://code.jquery.com/jquery-3.3.1.js"> </script>
   <%= javascript_include_tag 'custom', "data-turbolinks-track": "load" %>
   
