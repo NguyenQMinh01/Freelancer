@@ -80,13 +80,25 @@ gem 'omniauth'
 gem 'omniauth-facebook', '=5.0.0'
 gem 'simple_form'
 
+# Login signup with google
 gem 'omniauth-google-oauth2'
 gem "omniauth-rails_csrf_protection", "~> 1.0"
+
+# Faker data in seed
 gem 'faker'
+
+
 gem "net-http"
+
+# Upload image
 gem 'dropzonejs-rails'
 gem 'carrierwave'
 
+# Create page admin
 gem 'activeadmin'
 
+# Config environment
 gem 'figaro'
+
+# Paring
+gem 'kaminari'

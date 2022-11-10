@@ -14,10 +14,10 @@ class GigsController < ApplicationController
     @gig = current_user.gigs.build(gig_params)
 
     if @gig.save
-      @gig.pricings.create(Pricing.pricing_types.values.map { |x| { pricing_type: x } })
+      @gig.pricings.create(Pooricing.pricing_types.values.map { |x| { pricing_type: x } })
       redirect_to edit_gig_path(@gig), notice: "Save.."
     else
-      redirect_to request.referrer, flash: { error: @gig.errors.full_messages }
+      redirect_to request.referrer, alert: @gigs.errors.full_messages
     end
   end
 
@@ -34,18 +34,18 @@ class GigsController < ApplicationController
           next
         else
           if pricing[:title].blank? || pricing[:description].blank? || pricing[:delivery_time].blank? || pricing[:price].blank?
-            return redirect_to request.referrer, flash: { error: "Invalid pricing" }
+            return redirect_to request.referrer, notice: { error: "Invalid pricing" }
           end
         end
       end
     end
 
     if @step == 3 && gig_params[:description].blank?
-      return redirect_to request.referrer, flash: { error: "Description cannot be blank" }
+      return redirect_to request.referrer, notice: { error: "Description cannot be blank" }
     end
 
     if @step == 4 && gig_params[:description].blank?
-      return redirect_to request.referrer, flash: { error: "You don't have many photos" }
+      return redirect_to request.referrer, notice: { error: "You don't have many photos" }
     end
 
     if @step == 5
@@ -54,7 +54,7 @@ class GigsController < ApplicationController
           next
         else
           if pricing[:title].blank? || pricing[:description].blank? || pricing[:delivery_time].blank? || pricing[:price].blank?
-            return redirect_to gig_edit_path(@gig, step: 2), flash: { error: "Invalid pricing" }
+            return redirect_to gig_edit_path(@gig, step: 2), notice: { error: "Invalid pricing" }
           end
         end
       end
