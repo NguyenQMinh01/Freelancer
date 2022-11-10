@@ -2,11 +2,10 @@
 <html>
 <head>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-
 </head>
 
-<body style="background: #BA68C8; height: 1000px;">
-<div class="container rounded bg-white" style="margin-top: 200px ;">
+<body>
+<div class="container rounded" style="margin-top: 10%;margin-bottom: 10%; width: 70%; border-style: solid; ">
   <div class="row">
     <div class="col-md-4 border-right">
       <div class="d-flex flex-column align-items-center text-center p-3 py-5">
@@ -40,13 +39,13 @@
           <% end %>
           <div class="form-inputs"> 
             <%= f.input :current_password, autocomplete: "current-password", class: "input " %>
-            <br>
+            <%# <br> %>
           </div>
 
           <div class="form-inputs">
             <i>(Leave blank if you don't want to change it)</i><br />
             <%= f.input :password, autocomplete: "new-password", class: "input", style: "width: 99%" %>
-            <br/>
+            <%# <br/> %>
           </div>
         
           <div class="form-inputs">
@@ -55,11 +54,12 @@
           </div>
 
           <div class="actions">
-            <input type="submit" name="commit" value="Update" class="button is-success is-fullwidth" data-disable-with="Update" />
+            <input type="submit" name="commit" value="Update" class="button is-success is-fullwidth" style="background: -webkit-linear-gradient(left,#089617,#0CB91F,#0FD025,#15EF2C)" data-disable-with="Update" />
           </div>    
-        <% end %>       
-          <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "button is-danger is-fullwidth m-t-10 m-b-10" %>
-
+        <% end %> 
+        <p></p>     
+        <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete,style:"background: -webkit-linear-gradient(left,#B80909,#D01818,#E71919,#F84C4C)", class: "button is-danger is-fullwidth m-t-10 m-b-10" %>
+        <p></p>
         
         <%= link_to "Back", :back, class: "button is-fullwidth" %>
       </div>
@@ -68,9 +68,3 @@
 </div>
 </body>
 </html>
-
-
-
-
-
-

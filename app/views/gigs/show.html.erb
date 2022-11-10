@@ -64,7 +64,7 @@
                                     <br/>
                                     <% if @gig.video.present? %>
                                         <div class ="video-container">
-                                            <iframe id="player" src="https://www.youtube.com/watch?v=AgFeZr5ptV8" frameborder="0" allowfullscreen ></iframe>
+                                            <iframe width="100%" height="300px" src=<%= url_for(@gig.video).gsub('watch?v=', 'embed/') %> frameborder="0" allowfullscreen ></iframe>
                                         </div>
                                     <% end %>
                                 </div>
@@ -146,12 +146,12 @@
                     <!-- Profile Section -->
                     <div class="column">
                         <div class="card">
-                            <div class="card-content is-horizontal-center is-flex">
-                                <figure class="image is-96x96">
+                            <div class="card-content is-horizontal-center is-flex" style="justify-content: center; margin-bottom: -10%;">
+                                <figure class="image" style="width: 60%">
                                     <!-- User Avatar Here -->
-                                    <%= image_tag avatar_url(@gig.user), class: "is-rounded", style: "border: 2px solid black;" %>
+                                    <%= image_tag avatar_url(@gig.user), class: "is-rounded", style: "border: 2px solid black" %>
                                 </figure>
-                            </div>
+                            </div>  
                             <div class="card-content f-15">
                                 <div class="content has-text-centered">
                                     <p class="title is-5"><%= @gig.user.full_name%></p>
