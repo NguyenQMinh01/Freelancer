@@ -100,7 +100,7 @@
                                     <div class="media">
                                         <div class = "media-content">About </div>
                                             <div class = "media-right">
-                                                <strong><%= current_user.about %> </strong> 
+                                                <strong><%= current_user.about.truncate(15) %> </strong> 
                                             </div>
                                     </div>
 
@@ -117,7 +117,7 @@
                                     <div class="media">
                                         <div class = "media-content">Language </div>
                                             <div class = "media-right">
-                                                <strong><%= current_user.language %> </strong>
+                                                    <strong><%= current_user.language.truncate(12) %> </strong>
                                             </div>
                                     </div>
 

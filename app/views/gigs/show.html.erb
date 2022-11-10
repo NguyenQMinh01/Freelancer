@@ -241,11 +241,13 @@
                     <!-- Profile Section -->
                     <div class="column">
                         <div class="card">
-                            <div class="card-content is-horizontal-center is-flex" style="justify-content: center; margin-bottom: -10%;">
-                                <figure class="image" style="width: 60%">
-                                    <!-- User Avatar Here -->
-                                    <%= image_tag avatar_url(@gig.user), class: "is-rounded", style: "border: 2px solid black" %>
-                                </figure>
+                            <div class ="card-content is-horizontal-center is-flex" style="justify-content: center; margin-bottom: -10%; margin-right: -23%;">
+                                <%= link_to user_show_path(@gig.user) do %>
+                                    <figure class="image" style="width: 60%">
+                                        <!-- User Avatar Here -->
+                                        <%= image_tag avatar_url(@gig.user), class: "is-rounded", style: "border: 2px solid black" %>
+                                    </figure>
+                                <% end %>
                             </div>  
                             <div class="card-content f-15">
                                 <div class="content has-text-centered">
