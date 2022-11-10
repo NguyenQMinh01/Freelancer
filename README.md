@@ -70,3 +70,9 @@ rails g controller Gigs new create edit update show
 
 * Create offer
 rails g model Offer note:text amount:integer days:integer status:integer request:references user:references
+
+
+
+
+* khi từ nhánh local rebase tới dev mà hiện lỗi --continue | --abort | --skip
+* git rebase --abort là nhánh head sẽ nhảy qua dev local rồi sau đó reset về commit mới nhất của nhánh local
