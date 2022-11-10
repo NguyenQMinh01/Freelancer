@@ -33,19 +33,6 @@
                             <div class="navbar-item has-dropdown is-hoverable" style="">
                                 <a class="navbar-link">
                                     <figure class="image is-24x24 m-r-5 avatar <%= current_user.status ? "online" : "offline"%>">
-                            <div>
-                                <li class="dropdown">
-                                    <a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Orders <span class="caret"></span></a>
-                                    <ul class="dropdown-menu">
-                                        <%= link_to 'Selling Orders', selling_orders_path, class:"dropdown-item"%>
-                                        <hr class="dropdown-divider">
-                                        <%= link_to 'Buying Orders', buying_orders_path, class:"dropdown-item"%>
-                                    </ul>
-                                </li>
-                            </div>
-                            <div>
-                                <a class="dropdown">
-                                    <figure class="image is-24x24 m-r-5">
                                         <%= image_tag avatar_url(current_user), class: "is-rounded" %>
                                     </figure>
                                     <%= current_user.full_name %>
