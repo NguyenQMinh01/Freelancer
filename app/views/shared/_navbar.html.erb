@@ -16,10 +16,13 @@
         <div class="row">
             <div class="col-12">
                 <nav class="main-nav">
+                    
                     <!-- ***** Logo Start ***** -->
                     <a href="/" class="logo">
                         <%= image_tag 'https://www.f-cdn.com/assets/main/en/assets/freelancer-logo-old.svg' %>
                     </a>
+                   
+                    
                     <!-- ***** Logo End ***** -->
                     
                     <!-- ***** Menu Start ***** -->
@@ -27,13 +30,17 @@
                         <li><%= link_to t('.Home'), root_path%></li>
                         <li><%= link_to t('.Dashboard'), dashboard_path%></li>
                         <li><%= link_to t('.Post gig',), new_gig_path %></li>
+                        <li><%= link_to t('.Search gig',), search_path %></li>
+
                         <div class="navbar-item has-dropdown is-hoverable">
-                            <h2>VI</h2>
-                        <ul class="navbar-dropdown">
-                            <%= link_to "English", locale:"en" %>
-                            <%= link_to "Vietnamese", locale:"vi" %>
-                        </ul>
-                        </div>
+                            <a class = "lagn navbar-link" >VI/EN</a>
+                            <ul class="navbar-dropdown">
+                                <%= link_to "English", locale:"en", class: "navbar-item" %>
+                                <hr class="navbar-divider" style="color: black;border: 1px solid;">
+                                <%= link_to "Vietnamese", locale:"vi",  class: "navbar-item" %>
+                            </ul>
+                        </div> 
+                       
                         <% if (!user_signed_in?) %>
                             <li><%= link_to t(".Login"), new_user_session_path, class: "button is-success" %></li>
                             <li><%= link_to t(".Sign Up"), new_user_registration_path, class: "button is-danger" %></li>
@@ -56,7 +63,8 @@
                                 </ul> 
                             </div>
                         <% end %>
-                    </ul>   
+                    </ul>  
+                     
                     <a class='menu-trigger'>
                         <span>Menu</span>
                     </a>
@@ -79,9 +87,11 @@
 .main-nav{
     padding-right: 100px;
     margin-right: -50px;
+    
 }
 .nav{
     padding-right: 0px;
+
 }
 .nav ul{
     padding-right: 0px;
@@ -101,5 +111,9 @@
       }
    }
 }
+
+
+
+
 </style>
 

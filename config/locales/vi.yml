@@ -1,10 +1,11 @@
 vi:
  shared:
     navbar:
-      Home: "Trang Chủ"
-      Dashboard: "Bảng Điều Khiển"
-      faq: "FAQ"
+      Home: "Trang chủ"
+      Dashboard: "Bảng điều khiển"
+      Post gig: "Đăng công việc"
       news: "News"
-      contact: "Contact"
+      Search gig: "Tìm công việc"
+      Language: "Ngôn ngữ"
   
 
