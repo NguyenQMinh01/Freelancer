@@ -52,17 +52,20 @@
         <div class="col-lg-8">
           <div class="items">
             <div class="row">
+              <% if user_signed_in? %>
+              <% current_user.gigs.each do |gig| %>
               <div class="col-lg-12">
                 <div class="item">
                   <div class="row">
                     <div class="col-lg-4 col-sm-5">
                       <div class="image">
-                        <%= image_tag 'country-01.jpg' %>
+                        <%#= image_tag 'country-01.jpg' %>
+                        <%= image_tag gig_cover(gig) %>
                       </div>
                     </div>
                     <div class="col-lg-8 col-sm-7">
                       <div class="right-content">
-                        <h4>SWITZERLAND</h4>
+                        <h4><%= gig.title %></h4>
                         <span>Europe</span>
                         <div class="main-button">
                           <a href="about.html">Explore More</a>
@@ -81,6 +84,9 @@
                   </div>
                 </div>
               </div>
+              <% end %>
+              <% end %>
+
               <div class="col-lg-12">
                 <div class="item">
                   <div class="row">
@@ -110,6 +116,7 @@
                   </div>
                 </div>
               </div>
+
               <div class="col-lg-12">
                 <div class="item last-item">
                   <div class="row">
@@ -139,6 +146,7 @@
                   </div>
                 </div>
               </div>
+
               <div class="col-lg-12">
                 <ul class="page-numbers">
                   <li><a href="#"><i class="fa fa-arrow-left"></i></a></li>

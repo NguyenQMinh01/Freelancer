@@ -1,12 +1,13 @@
 
     <div class="container">
-        <div class="row" >
+        <div class="row">
             <div class="col-12">
                 <nav class="main-nav">
                     <div class="nav" >
-                        <a href="#" style=":hover{color: red;}"><li>My Project</li></a>
+                    <div class="sub-nav" >
+                        <a href="#"><li>My Project</li></a>
                         <a href="#">Free Credit</a>
-                        <div>
+                        <div class="subnav-item">
                             <a class="dropdown">
                                 <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Selling <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
@@ -15,7 +16,7 @@
                             </a>
                         </div>
 
-                        <div>
+                        <div class="subnav-item">
                             <a class="dropdown">
                                 <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">(Freelancer) Buying <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
@@ -29,7 +30,7 @@
                             </a>
                         </div>
 
-                        <div>
+                        <div class="subnav-item">
                             <a class="dropdown">
                                 <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">(Freelancer) Requests <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
@@ -41,7 +42,7 @@
                             </a>
                         </div>
 
-                        <div>
+                        <div class="subnav-item">
                             <a class="dropdown">
                                 <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Orders <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
@@ -52,7 +53,7 @@
                             </a>
                         </div>
 
-                        <div>
+                        <div class="subnav-item">
                             <a class="dropdown">
                                 <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Settings <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
@@ -65,28 +66,48 @@
                             </a>          
                         </div>
                     </div>
+                    </div>
                 </nav>
             </div>
         </div>
     </div>
 <style>
-.header-area .main-nav .nav{
+.sub-nav, .dropdown{
+    position: relative;
+}
+.navbar-dropdown{
+    z-index: 1;
+}
+.sub-nav{
+    padding: center;
+    height: 50px;
+    width: 1000px;
+    /* flex-basis: 100%; */
+    z-index: -2;
+}
+.sub-nav li{
     flex-basis: 100%;
-    margin-right: 100px;
+    padding-right: 10px;
+    display: inline-block;
 }
-.dropdown {
-    margin-left: 10px;
-    margin-right: 10px;
+.sub-nav .subnav-item{
+    flex-basis: 100%;
+    padding-right: 5px;
+    padding-left: 5px;
+    display: inline-block;
 }
-
-.dropdown-toggle {
-    /* color: black; */
+.sub-nav .dropdown-menu{
+    flex-basis: 100%;
+    padding-right: 10px;
 }
-.dropdown :hover{
-    background-color: blue;
+.dropdown:hover .dropdown-menu {
+  display: block;
 }
-
-.nav .a:hover {
-    color: black;
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
 </style>

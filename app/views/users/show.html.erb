@@ -13,7 +13,7 @@
                             <!-- Avatar -->
                             <div class="card-content is-horizontal-center is-flex">
                                 <figure class="image is-128x128">
-                                    <%= image_tag avatar_url(@user), class: "is-rounded" %>
+                                    <%= image_tag avatar_url(@user), class: "is-rounded", style: "border: 2px solid black;" %>
                                 </figure>
 
                             </div>
@@ -91,7 +91,7 @@
                                 
                                 <!-- Linked Account -->
                                 <article class="media"></article>
-                                <%= link_to "view freelancer profile", dashboard_path , class: "button is-danger"%>
+                                <%= link_to "View Freelancer Profile", dashboard_path , class: "button is-hovered is-fullwidth m-t-10 m-b-10 text-white", style:"background: -webkit-linear-gradient(left,#B80909,#D01818,#E71919,#F84C4C);" %>
 
                             </div>
                         </div>
@@ -112,7 +112,7 @@
                         <article class="media">
                             <figure class=" media-left">
                                 <p class="image is-64x64">
-                                    <%= image_tag avatar_url(@user), class: "is-rounded" %>
+                                    <%= image_tag avatar_url(@user), class: "is-rounded", style: "border: 2px solid black;"%>
 
                                 </p>
                             </figure> 
