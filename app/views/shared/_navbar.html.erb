@@ -24,10 +24,16 @@
                     
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
-                        <li><%= link_to 'Home', root_path%></li>
+                        <li><%= link_to t('.Home'), root_path%></li>
                         <li><%= link_to 'Dashboard', dashboard_path%></li>
                         <li><%= link_to 'Search Gigs', search_path %></li>
-
+                        <div class="navbar-item has-dropdown is-hoverable" style="">
+                            <h2>VI</h2>
+                        <ul class="navbar-dropdown">
+                            <%= link_to "English", locale:"en" %>
+                            <%= link_to "Vietnamese", locale:"vi" %>
+                        </ul>
+                        </div>
                         <% if (!user_signed_in?) %>
                             <li><%= link_to "Login", new_user_session_path, class: "button is-success" %></li>
                             <li><%= link_to "Sign Up", new_user_registration_path, class: "button is-danger" %></li>
@@ -59,7 +65,7 @@
             </div>
         </div>
     </div>
-    <% if (user_signed_in?) && !current_page?(root_path) && !current_page?("/gigs/#{params[:id]}") && !current_page?(search_path) %>       
+    <% if (user_signed_in?) && current_page?(root_path) && !current_page?("/gigs/#{params[:id]}") && !current_page?(search_path) %>       
         <br/>
         <%= render 'shared/navbar1' %>
     <% end %>
