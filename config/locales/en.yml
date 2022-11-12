@@ -29,5 +29,11 @@
 # To learn more, please read the Rails Internationalization guide
 # available at https://guides.rubyonrails.org/i18n.html.
 
-en:
-  hello: "Hello world"
+en: 
+  layouts:
+    application:
+      home: "Home"
+      title: "Books Store"
+      faq: "FAQ"
+      news: "News"
+      contact: "Contact"

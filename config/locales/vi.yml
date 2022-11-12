@@ -1,0 +1,10 @@
+vi:
+ shared:
+    navbar:
+      Home: "Trang Chủ"
+      Dashboard: "Bảng Điều Khiển"
+      faq: "FAQ"
+      news: "News"
+      contact: "Contact"
+  
+

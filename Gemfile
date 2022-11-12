@@ -102,3 +102,6 @@ gem 'figaro'
 
 # Paring
 gem 'kaminari'
+
+# Translate 
+gem 'rails-i18n'
