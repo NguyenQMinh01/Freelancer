@@ -1,5 +1,5 @@
 
-    <div class="container">
+    <div class="container" style="z-index: 1;">
         <div class="row">
             <div class="col-12">
                 <nav class="main-nav">
@@ -71,6 +71,7 @@
             </div>
         </div>
     </div>
+
 <style>
 .sub-nav, .dropdown{
     position: relative;
@@ -111,3 +112,29 @@
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
 </style>
+
+<script>
+
+$(document).ready(
+    function () {
+        $('.dropdown').hover(function() {
+            alert("ad");
+            $(this).toggleClass('show');
+            var menu = $(this).children('.dropdown-menu');
+            var arial = $(this).children('#navbarDropdown');
+            arial.attr('aria-expanded', 'true');
+            menu.toggleClass('show');
+        }, 
+
+        setTimeout(function() {
+            $('.subnav-item .dropdown').removeClass('show');
+            
+            var menu = $(this).children('.dropdown-menu');
+            var arial = $(this).children('#navbarDropdown');
+            $(this).removeClass('show');
+            arial.attr('aria-expanded', 'false');
+            menu.removeClass('show');
+        }, 2000));
+    }
+);
+</script>
