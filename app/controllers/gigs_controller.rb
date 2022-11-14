@@ -17,7 +17,7 @@ class GigsController < ApplicationController
       @gig.pricings.create(Pooricing.pricing_types.values.map { |x| { pricing_type: x } })
       redirect_to edit_gig_path(@gig), notice: "Save.."
     else
-      redirect_to request.referrer, alert: @gigs.errors.full_messages
+      redirect_to request.referrer, notice: @gigs.errors.full_messages
     end
   end
 
