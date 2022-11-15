@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  scope "(:locale)", locale: /en|vi/ do
     devise_for :admin_users, ActiveAdmin::Devise.config
     ActiveAdmin.routes(self)
     # get 'requests/index'
@@ -32,7 +31,7 @@ Rails.application.routes.draw do
 
     put '/offers/:id/accept', to: 'offers#accept', as: 'accept_offer'
     put '/offers/:id/reject', to: 'offers#reject', as: 'reject_offer'
-
+  
 
     # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -56,12 +55,12 @@ Rails.application.routes.draw do
 
     resources :requests
     resources :offers
-  end
   devise_for :users,
   path: '',
   #path_names:{sign_up: 'register', sign_in: 'login', edit: 'profile', sign_out: 'logout'},
   controllers: {omniauth_callbacks: 'omniauth_callbacks', registrations: 'registrations'}
   resources :users
 
+  
 end
  
