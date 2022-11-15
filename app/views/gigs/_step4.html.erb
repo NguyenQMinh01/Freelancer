@@ -7,9 +7,9 @@
     <div class="field">
         <label for="" class="label">Create your Gig Gallery</label>
         <div class="control">
-            <div class="m-b-20" >
+            <div class="m-b-20">
                 <!-- Photos Drop Zone Here -->
-                <div  class="dropzone col-md-8" id="myDropzone" action="/gigs/<%= @gig.id %>/upload_photo" >
+                <div class="dropzone col-md-8 dz-clickable" style="width: 100%;" id="myDropzone" action="/gigs/<%= @gig.id %>/upload_photo" >
                 </div>
             </div>
 
@@ -38,17 +38,21 @@
 </div>
 
 <script>
-   
-            Dropzone.options.myDropzone = {
-            paramName: "file",
-            maxFilesize: 2,
-            acceptedFiles: "image/*",
-            init: function(){
-                this.on('complete', function(file){
-                    location.reload();
-                })
-            }
+    $(document).on "page:load", ->
+        $("#myDropzone").dropzone();
+    $(document).on "page:change", ->
+        $("#myDropzone").dropzone();
+
+    Dropzone.options.myDropzone = {
+        paramName: "file",
+        maxFilesize: 2,
+        acceptedFiles: "image/*",
+        init: function(){
+            this.on('complete', function(file){
+                location.reload();
+            })
         }
+    };
    
 </script>
 
