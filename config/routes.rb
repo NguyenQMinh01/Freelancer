@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   # get 'requests/list'
   # get 'requests/show'
   root "pages#home"
-  
   # get 'gigs/new'
   # get 'gigs/create'
   # get 'gigs/edit'
@@ -16,7 +15,7 @@ Rails.application.routes.draw do
 
    delete 'requests/delete' 
   
-
+  #  get '*path' => redirect('/404.html') #render page 404
    get '/dashboard', to: 'users#dashboard'
    get 'users/:id', to: 'users#show', :as => :user_show #user_show_path
    get '/selling_orders', to: 'orders#selling_orders'
