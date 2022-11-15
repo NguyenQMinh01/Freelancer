@@ -36,8 +36,8 @@
                         </ul>
                         </div>
                         <% if (!user_signed_in?) %>
-                            <li><%= link_to "Login", new_user_session_path, class: "button is-success" %></li>
-                            <li><%= link_to "Sign Up", new_user_registration_path, class: "button is-danger" %></li>
+                            <li><%= link_to t(".Login"), new_user_session_path, class: "button is-success" %></li>
+                            <li><%= link_to t(".Sign Up"), new_user_registration_path, class: "button is-danger" %></li>
                         <% else %>
                         
                             <div class="navbar-item has-dropdown is-hoverable">
@@ -66,7 +66,7 @@
             </div>
         </div>
     </div>
-    <% if (user_signed_in?) && current_page?(root_path) && !current_page?("/gigs/#{params[:id]}") && !current_page?(search_path) && current_page?(dashboard_path) %>       
+    <% if (user_signed_in?) && !current_page?(root_path) && !current_page?("/gigs/#{params[:id]}") && !current_page?(search_path) %>       
         <br/>
         <%= render 'shared/navbar1' %>
     <% end %>
