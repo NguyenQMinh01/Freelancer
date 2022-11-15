@@ -40,9 +40,11 @@
                     <tr>
                         <td><%= r.created_at.strftime('%d, %b %Y')%></td>
                         <td>
+                            <%= link_to  user_show_path(r.user) do%>
                             <figure class="image is-48x48">
                                 <%= image_tag avatar_url(r.user), class: "is-rouned"%>
                             </figure>
+                            <% end %>
                         </td>
                         <td>
                             <%= link_to request_path(r), class: "tooltip" do %>
