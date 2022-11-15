@@ -19,7 +19,7 @@ class RequestsController < ApplicationController
     if @request.save
       redirect_to requests_path, notice: "Save success"
     else
-      redirect_to request.referrer, flash: {error: @request.errors.full_messages.join(', ')}
+      redirect_to request.referrer, alert: @request.errors.full_messages.join(', ')
     end
   end
 
@@ -50,7 +50,7 @@ class RequestsController < ApplicationController
     if @request.update(request_params)
       redirect_to requests_path, notice: "Save success"
     else
-      redirect_to request.referrer, flash: {error: @request.errors.full_messages.join(', ')}
+      redirect_to request.referrer, alert: @request.errors.full_messages.join(', ')
     end
   end
 
