@@ -40,11 +40,39 @@
                         </span>
                     </td>
                     <td>
-                       <%= link_to 'Mark Complete', complete_order_path(o), method: :put, class: "button is-small is-primary #{'is-hidden'if o.completed?}"%>
+                        <% if !o.completed? %>
+                            <%= link_to 'Mark Complete', complete_order_path(o), method: :put, class: "button is-small is-primary #{'is-hidden'if o.completed?}"%>
+                        <% else %>
+                            <a class="button is-small is-outlined is-danger toggle-model " aria-control="<%= o.id %>">Rating</a>
+                        <% end %>
                     </td>
                 </tr>
                 <% end %>
             </tbody>
         </table>
     </div>
+</section>
+
+
+<section>
+    <form id="form">
+        <fieldset class="stars">
+          <input type="radio" name="stars" id="star1" ontouchstart="ontouchstart"/>
+          <label class="fa fa-star" for="star1"></label>
+          <input type="radio" name="stars" id="star2" ontouchstart="ontouchstart"/>
+          <label class="fa fa-star" for="star2"></label>
+          <input type="radio" name="stars" id="star3" ontouchstart="ontouchstart"/>
+          <label class="fa fa-star" for="star3"></label>
+          <input type="radio" name="stars" id="star4" ontouchstart="ontouchstart"/>
+          <label class="fa fa-star" for="star4"></label>
+          <input type="radio" name="stars" id="star5" ontouchstart="ontouchstart"/>
+          <label class="fa fa-star" for="star5"></label>
+          <input id="star-reset" type="radio" name="stars"/>
+          <figure class="face"><i></i><i></i>
+            <u>
+              <div class="cover"></div>
+            </u>
+          </figure>
+        </fieldset>
+      </form>
 </section>
