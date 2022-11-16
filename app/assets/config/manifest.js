@@ -5,7 +5,4 @@
 //= require_tree .
 //= require dropzone
 //= require jquery
-//= require popper 
-//= require turbolinks 
-//= require bootstrap 
-
+//= require raty-js
