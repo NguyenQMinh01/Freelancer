@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   def home
+    @all_gigs = Gig.all
   end
 
   def search

@@ -25,20 +25,20 @@ development:
   <<: *default
   database: freelancer_development
 
-  username: <%= ENV['name'] %>
+  username: postgres #<%= ENV['name'] %>
 
   # The password associated with the postgres role (username).
 
-  password: <%= ENV['password'] %>
+  password: taduc123 #<%= ENV['password'] %>
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
   # domain sockets, so uncomment these lines.
-  host: <%= ENV['host'] %>
+  host: localhost #<%= ENV['host'] %>
 
   # The TCP port the server listens on. Defaults to 5432.
   # If your server runs on a different port number, change accordingly.
-  port: <%= ENV['port'] %>
+  port: 5432 #<%= ENV['port'] %>
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -74,20 +74,20 @@ test:
   <<: *default
   database: freelancer_test
 
-  username: <%= ENV['name'] %>
+  username: postgres #<%= ENV['name'] %>
 
   # The password associated with the postgres role (username).
 
-  password: <%= ENV['password'] %>
+  password: taduc123 #<%= ENV['password'] %>
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
   # domain sockets, so uncomment these lines.
-  host: <%= ENV['host'] %>
+  host: localhost #<%= ENV['host'] %>
 
   # The TCP port the server listens on. Defaults to 5432.
   # If your server runs on a different port number, change accordingly.
-  port: <%= ENV['port'] %>
+  port: 5432 #<%= ENV['port'] %>
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is

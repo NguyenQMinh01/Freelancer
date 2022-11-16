@@ -128,7 +128,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_16_070728) do
     t.integer "status", default: 0
     t.string "seller_name"
     t.string "buyer_name"
-    t.bigint "gig_id"
+    t.bigint "gig_id", null: false
     t.bigint "buyer_id"
     t.bigint "seller_id"
     t.datetime "created_at", null: false
@@ -188,6 +188,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_16_070728) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string "unconfirmed_email"
     t.string "full_name"
     t.string "from"
     t.text "about"
@@ -196,10 +200,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_16_070728) do
     t.string "provider"
     t.string "uid"
     t.string "image"
-    t.string "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
-    t.datetime "unconfirmed_email"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -219,8 +219,4 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_16_070728) do
   add_foreign_key "pricings", "gigs"
   add_foreign_key "requests", "categories"
   add_foreign_key "requests", "users"
-  add_foreign_key "reviews", "gigs"
-  add_foreign_key "reviews", "orders"
-  add_foreign_key "reviews", "users", column: "buyer_id"
-  add_foreign_key "reviews", "users", column: "seller_id"
 end
