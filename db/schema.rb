@@ -128,7 +128,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_15_162303) do
     t.integer "status", default: 0
     t.string "seller_name"
     t.string "buyer_name"
-    t.bigint "gig_id"
+    t.bigint "gig_id", null: false
     t.bigint "buyer_id"
     t.bigint "seller_id"
     t.datetime "created_at", null: false
@@ -165,21 +165,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_15_162303) do
     t.index ["user_id"], name: "index_requests_on_user_id"
   end
 
-  create_table "reviews", force: :cascade do |t|
-    t.text "review"
-    t.integer "stars", default: 1
-    t.uuid "order_id", null: false
-    t.bigint "gig_id"
-    t.bigint "buyer_id"
-    t.bigint "seller_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["buyer_id"], name: "index_reviews_on_buyer_id"
-    t.index ["gig_id"], name: "index_reviews_on_gig_id"
-    t.index ["order_id"], name: "index_reviews_on_order_id"
-    t.index ["seller_id"], name: "index_reviews_on_seller_id"
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -188,6 +173,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_15_162303) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string "unconfirmed_email"
     t.string "full_name"
     t.string "from"
     t.text "about"
@@ -196,10 +185,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_15_162303) do
     t.string "provider"
     t.string "uid"
     t.string "image"
-    t.string "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
-    t.datetime "unconfirmed_email"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -219,8 +204,4 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_15_162303) do
   add_foreign_key "pricings", "gigs"
   add_foreign_key "requests", "categories"
   add_foreign_key "requests", "users"
-  add_foreign_key "reviews", "gigs"
-  add_foreign_key "reviews", "orders"
-  add_foreign_key "reviews", "users", column: "buyer_id"
-  add_foreign_key "reviews", "users", column: "seller_id"
 end
