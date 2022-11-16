@@ -46,27 +46,30 @@
                             <a aria-control="<%= o.id %>">
                             <%= link_to 'Rating', reviews_path, {:remote => true, 'data-toggle' => "modal", 'data-target' => '#modal-window', class: 'button is-small is-outlined is-danger toggle-model'} %> 
                             </a>
-                            <div id="modal-window" id = "<%= o.id %>" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"> 
-                                <div class="modal-dialog" role="document"> 
+                            <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"> 
+                                <div class="modal-dialog" id = "<%= o.id %>"  role="document"> 
                                     <div class="modal-content" >
                                         <%= form_for Review.new do |f| %>
-
+                                        <%= f.hidden_field :order_id , value: o.id %>
+                                      
                                         <div class="modal-header"> 
-                                            <form id="form" style="margin-left: 10px;">
-                                                <fieldset class="stars">
-                                                  <input type="radio" name="stars" id="star1" ontouchstart="ontouchstart"/>
-                                                  <label class="fa fa-star" for="star1"></label>
-                                                  <input type="radio" name="stars" id="star2" ontouchstart="ontouchstart"/>
-                                                  <label class="fa fa-star" for="star2"></label>
-                                                  <input type="radio" name="stars" id="star3" ontouchstart="ontouchstart"/>
-                                                  <label class="fa fa-star" for="star3"></label>
-                                                  <input type="radio" name="stars" id="star4" ontouchstart="ontouchstart"/>
-                                                  <label class="fa fa-star" for="star4"></label>
-                                                  <input type="radio" name="stars" id="star5" ontouchstart="ontouchstart"/>
-                                                  <label class="fa fa-star" for="star5"></label>
-                                                  <input id="star-reset" type="radio" name="stars"/>
-                                                </fieldset>
-                                              </form>
+                                            <div class="field">
+                                                <form id="form" style="margin-left: 10px;">
+                                                    <fieldset class="stars">
+                                                      <input type="radio" name="stars" id="star1" <%= o.id %> ontouchstart="ontouchstart"/>
+                                                      <label class="fa fa-star" for="star1" id = "<%= o.id %>"></label>
+                                                      <input type="radio" name="stars" id="star2" <%= o.id %> ontouchstart="ontouchstart"/>
+                                                      <label class="fa fa-star" for="star2" id = "<%= o.id %>"></label>
+                                                      <input type="radio" name="stars" id="star3" <%= o.id %> ontouchstart="ontouchstart"/>
+                                                      <label class="fa fa-star" for="star3" id = "<%= o.id %>"></label>
+                                                      <input type="radio" name="stars" id="star4" <%= o.id %> ontouchstart="ontouchstart"/>
+                                                      <label class="fa fa-star" for="star4" id = "<%= o.id %>"></label>
+                                                      <input type="radio" name="stars" id="star5" <%= o.id %> ontouchstart="ontouchstart"/>
+                                                      <label class="fa fa-star" for="star5" id = "<%= o.id %>"></label>
+                                                      <!-- <input id="star-reset" type="radio" name="stars"/> -->
+                                                    </fieldset>
+                                                  </form>
+                                            </div>
                                             </button> 
                                             <h4 class="modal-title" id="myModalLabel">Your rating</h4>
                                          </div> 
