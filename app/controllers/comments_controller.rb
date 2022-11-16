@@ -26,6 +26,5 @@ class CommentsController < ApplicationController
 
     def is_valid_order
         redirect_to dashboard_path, alert: "Invalid order" unless Order.find(comment_params[:order_id]).present?
-
     end
 end
