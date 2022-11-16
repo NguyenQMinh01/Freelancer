@@ -100,7 +100,6 @@
 
             <!-- RIGHT SIDE -->
             <div class="column infinite-list">
-
                 <!-- List of gigs -->
                 <div class="columns is-multiline">
                         <%= render 'shared/gigs'  %>    
@@ -109,9 +108,10 @@
                 <!-- Pagination -->
                 <div class="card">
                     <div class="card-header-title is-centered">
-                        <%= paginate @gigs%>
+                        <%= paginate @gigs %>
                     </div>
                 </div>
+                <%= paginate @gigs %>
             </div>
 
         </div>

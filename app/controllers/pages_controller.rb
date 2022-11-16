@@ -41,9 +41,14 @@ class PagesController < ApplicationController
       query_condition << @delivery
     end
     
-    @gigs = Gig.select("gigs.id, gigs.title, gigs.user_id, pricings.price AS price")
-            .joins(:pricings).where(query_condition)
-            .order(@sort).page(params[:page]).per(6)
+    @gigs = Gig.select("*").joins(:pricings).where(query_condition)
+    .order(@sort).page(params[:page]).per(6)
+
+    # @gigs = Gig.select("gigs.id, gigs.title, gigs.user_id, pricings.price AS price")
+    #         .joins(:pricings).where(query_condition)
+    #         .order(@sort).page(params[:page]).per(6)
+
+    puts @gigs
   end
 
 end
