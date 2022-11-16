@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   def home
-    @all_gigs = Gig.all
+    @top10_gigs = Gig.limit(10)
   end
 
   def search
