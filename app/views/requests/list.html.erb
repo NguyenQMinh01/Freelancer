@@ -47,12 +47,7 @@
                             <% end %>
                         </td>
                         <td>
-                            <%= link_to request_path(r), class: "tooltip" do %>
-                            <label for="" class="tooltip" data-tooltip="<%= r.description%>" >
-                                <%= r.title.truncate(25, seperator: '')%>
-
-                            </label>
-                            <% end %>
+                            <%= link_to r.title.truncate(25, seperator: ''),request_path(r)%>
                         </td>
                         <td class ="has-text-right"><%= r.offers.count%></td>
                         <td class ="has-text-right"><%= pluralize(r.delivery, 'day') %></td>

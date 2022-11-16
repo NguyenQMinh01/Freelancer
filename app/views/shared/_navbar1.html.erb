@@ -1,15 +1,15 @@
 
-    <div class="container" style="z-index: 1;">
+    <div class="container" style="z-index: 1;" >
         <div class="row">
             <div class="col-12">
                 <nav class="main-nav">
                     <div class="nav" >
-                    <div class="sub-nav" data-turbo= "false">
+                    <div class="sub-nav" data-turbo= false>
                         <a href="#"><li>My Project</li></a>
                         <a href="#">Free Credit</a>
                         <div class="subnav-item">
-                            <a class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">Selling <span class="caret"></span></a>
+                            <a class="dropdown-custom">
+                                <a class="dropdown-toggle" data-toggle="dropdown-custom" role="button" aria-haspopup="true" aria-expanded="true">Selling <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <%= link_to 'Post gig', new_gig_path, class: "dropdown-item" %>
                                 </ul>
@@ -17,8 +17,8 @@
                         </div>
 
                         <div class="subnav-item">
-                            <a class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">(Freelancer) Buying <span class="caret"></span></a>
+                            <a class="dropdown-custom">
+                                <a class="dropdown-toggle" data-toggle="dropdown-custom" role="button" aria-haspopup="true" aria-expanded="false">(Freelancer) Buying <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <%= link_to 'Freelancer Post Request', new_request_path, class: "dropdown-item"%>
                                     <%= link_to 'Manage Request', requests_path, class: "dropdown-item"%>
@@ -31,8 +31,8 @@
                         </div>
 
                         <div class="subnav-item">
-                            <a class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">(Freelancer) Requests <span class="caret"></span></a>
+                            <a class="dropdown-custom">
+                                <a class="dropdown-toggle" data-toggle="dropdown-custom" role="button" aria-haspopup="true" aria-expanded="false">(Freelancer) Requests <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <%= link_to 'Active Request', all_requests_path, class: "dropdown-item"%>
                                     <%= link_to 'Offers sent', my_offers_path, class: "dropdown-item"%>
@@ -43,8 +43,8 @@
                         </div>
 
                         <div class="subnav-item">
-                            <a class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Orders <span class="caret"></span></a>
+                            <a class="dropdown-custom">
+                                <a class="dropdown-toggle" data-toggle="dropdown-custom" role="button" aria-haspopup="true" aria-expanded="false">Orders <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <%= link_to 'Selling Orders', selling_orders_path, class:"dropdown-item"%>
                                     <hr class="dropdown-divider">
@@ -54,8 +54,8 @@
                         </div>
 
                         <div class="subnav-item">
-                            <a class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Settings <span class="caret"></span></a>
+                            <a class="dropdown-custom">
+                                <a class="dropdown-toggle" data-toggle="dropdown-custom" role="button" aria-haspopup="true" aria-expanded="false">Settings <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <a class="dropdown-item">Create new gig </a>
                                     <a class="dropdown-item">Jobs</a>
@@ -73,12 +73,13 @@
     </div>
 
 <style>
-.sub-nav, .dropdown{
+:root {
+  --left: 20px;
+}
+.sub-nav, .dropdown-custom{
     position: relative;
 }
-.navbar-dropdown{
-    z-index: 1;
-}
+
 .sub-nav{
     padding: center;
     height: 50px;
@@ -92,49 +93,29 @@
     display: inline-block;
 }
 .sub-nav .subnav-item{
+    position: static;
     flex-basis: 100%;
     padding-right: 5px;
     padding-left: 5px;
     display: inline-block;
+    --left: left;
 }
 .sub-nav .dropdown-menu{
     flex-basis: 100%;
     padding-right: 10px;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
-.dropdown:hover .dropdown-menu {
-  display: block;
-}
-.dropdown-menu {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+
+.subnav-item:hover .dropdown-menu{
+    position: absolute;
+    top: 22px;
+    left: var(--left);
+    display: block;
 }
 </style>
 
 <script>
 
-$(document).ready(
-    function () {
-        $('.dropdown').hover(function() {
-            alert("ad");
-            $(this).toggleClass('show');
-            var menu = $(this).children('.dropdown-menu');
-            var arial = $(this).children('#navbarDropdown');
-            arial.attr('aria-expanded', 'true');
-            menu.toggleClass('show');
-        }, 
-
-        setTimeout(function() {
-            $('.subnav-item .dropdown').removeClass('show');
-            
-            var menu = $(this).children('.dropdown-menu');
-            var arial = $(this).children('#navbarDropdown');
-            $(this).removeClass('show');
-            arial.attr('aria-expanded', 'false');
-            menu.removeClass('show');
-        }, 2000));
-    }
-);
 </script>
