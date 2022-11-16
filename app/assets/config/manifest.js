@@ -4,4 +4,8 @@
 //= link_tree ../../../vendor/javascript .js
 //= require_tree .
 //= require dropzone
+//= require jquery
+//= require popper 
+//= require turbolinks 
+//= require bootstrap 
 

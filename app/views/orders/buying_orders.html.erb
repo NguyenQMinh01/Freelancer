@@ -43,7 +43,46 @@
                         <% if !o.completed? %>
                             <%= link_to 'Mark Complete', complete_order_path(o), method: :put, class: "button is-small is-primary #{'is-hidden'if o.completed?}"%>
                         <% else %>
-                            <a class="button is-small is-outlined is-danger toggle-model " aria-control="<%= o.id %>">Rating</a>
+                            <a aria-control="<%= o.id %>">
+                            <%= link_to 'Rating', reviews_path, {:remote => true, 'data-toggle' => "modal", 'data-target' => '#modal-window', class: 'button is-small is-outlined is-danger toggle-model'} %> 
+                            </a>
+                            <div id="modal-window" id = "<%= o.id %>" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"> 
+                                <div class="modal-dialog" role="document"> 
+                                    <div class="modal-content" >
+                                        <%= form_for Review.new do |f| %>
+
+                                        <div class="modal-header"> 
+                                            <form id="form" style="margin-left: 10px;">
+                                                <fieldset class="stars">
+                                                  <input type="radio" name="stars" id="star1" ontouchstart="ontouchstart"/>
+                                                  <label class="fa fa-star" for="star1"></label>
+                                                  <input type="radio" name="stars" id="star2" ontouchstart="ontouchstart"/>
+                                                  <label class="fa fa-star" for="star2"></label>
+                                                  <input type="radio" name="stars" id="star3" ontouchstart="ontouchstart"/>
+                                                  <label class="fa fa-star" for="star3"></label>
+                                                  <input type="radio" name="stars" id="star4" ontouchstart="ontouchstart"/>
+                                                  <label class="fa fa-star" for="star4"></label>
+                                                  <input type="radio" name="stars" id="star5" ontouchstart="ontouchstart"/>
+                                                  <label class="fa fa-star" for="star5"></label>
+                                                  <input id="star-reset" type="radio" name="stars"/>
+                                                </fieldset>
+                                              </form>
+                                            </button> 
+                                            <h4 class="modal-title" id="myModalLabel">Your rating</h4>
+                                         </div> 
+                                         <div class="modal-body"> 
+                                            <div class="field">
+                                                <%= f.text_field :review , class: "textarea" %>
+                                            </div>
+                                         </div> 
+                                         <div class="modal-footer"> 
+                                            <button class="btn btn-danger">Cancel</button> 
+                                            <button class="btn btn-primary">Save</button> 
+                                        </div>
+                                        <% end %>
+                                    </div> 
+                                </div>
+                             </div>
                         <% end %>
                     </td>
                 </tr>
@@ -54,25 +93,9 @@
 </section>
 
 
+
+
 <section>
-    <form id="form">
-        <fieldset class="stars">
-          <input type="radio" name="stars" id="star1" ontouchstart="ontouchstart"/>
-          <label class="fa fa-star" for="star1"></label>
-          <input type="radio" name="stars" id="star2" ontouchstart="ontouchstart"/>
-          <label class="fa fa-star" for="star2"></label>
-          <input type="radio" name="stars" id="star3" ontouchstart="ontouchstart"/>
-          <label class="fa fa-star" for="star3"></label>
-          <input type="radio" name="stars" id="star4" ontouchstart="ontouchstart"/>
-          <label class="fa fa-star" for="star4"></label>
-          <input type="radio" name="stars" id="star5" ontouchstart="ontouchstart"/>
-          <label class="fa fa-star" for="star5"></label>
-          <input id="star-reset" type="radio" name="stars"/>
-          <figure class="face"><i></i><i></i>
-            <u>
-              <div class="cover"></div>
-            </u>
-          </figure>
-        </fieldset>
-      </form>
+   
 </section>
+

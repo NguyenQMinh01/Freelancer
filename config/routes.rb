@@ -30,7 +30,7 @@ Rails.application.routes.draw do
     post 'users/edit', to: 'users#update' #users_edit_path
     post '/offers', to: 'offers#create'
     post '/comments', to: 'comments#create'
-    post '/reviews', to: 'reviews#create'
+    post '/reviews', to: 'reviews#create', as: "reviews"
 
     put '/offers/:id/accept', to: 'offers#accept', as: 'accept_offer'
     put '/offers/:id/reject', to: 'offers#reject', as: 'reject_offer'
