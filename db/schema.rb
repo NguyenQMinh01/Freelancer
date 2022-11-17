@@ -219,4 +219,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_16_070728) do
   add_foreign_key "pricings", "gigs"
   add_foreign_key "requests", "categories"
   add_foreign_key "requests", "users"
+  add_foreign_key "reviews", "gigs"
+  add_foreign_key "reviews", "orders"
+  add_foreign_key "reviews", "users", column: "buyer_id"
+  add_foreign_key "reviews", "users", column: "seller_id"
 end
