@@ -92,7 +92,8 @@
 
         var order_id = e.target.getAttribute('aria-control');
         $('#star_' + order_id ).raty({
-            path: '/assets/raty-js/lib/images',
+            starOff:  '<%= asset_path("star-off.png") %>',
+            starOn: '<%= asset_path("star-on.png") %>',
             scoreName: 'review[stars]',
             score: 1
         })
