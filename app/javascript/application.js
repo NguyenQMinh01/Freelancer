@@ -2,7 +2,7 @@
 //= require dropzone
 //= require turbolinks 
 //= require raty-js
-
+//= require jquery-raty-js
 
 
 import "@hotwired/turbo-rails"
@@ -16,7 +16,6 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 require("raty-js").start()
-require("jquery.raty.js").start()
 require("raty")
 window.Noty = require("noty")
 

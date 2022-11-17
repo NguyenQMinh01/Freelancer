@@ -1,7 +1,7 @@
 <section class="section">
     <div class="container">
 
-        <p class="title">Manage Buying Oders</p>
+        <p class="title">Manage Buying Orders</p>
 
         <table class="table is-fullwidth">
             <thead>
@@ -43,7 +43,7 @@
                         <% if !o.completed? %>
                             <%= link_to 'Mark Complete', complete_order_path(o), method: :put, class: "button is-small is-primary #{'is-hidden'if o.completed?}"%>
                         <% else %>
-                            <div class = "button is-small is-outlined is-danger toggle-modal" aria-control="<%= o.id%>" onclick="click1()"    >Rating</div>
+                            <div class = "button is-small is-outlined is-danger toggle-modal" aria-control="<%= o.id%>" onclick="click1()">Rating</div>
 
                             <div class="modal" id="<%= o.id%>" >
                                 <div class="modal-content">
@@ -56,7 +56,7 @@
                                         </div>
                                         
                                         <div class="field">
-                                            <%= f.text_field :review, class: "textarea"%>
+                                            <%= f.text_area :review, class: "textarea"%>
                                         </div>
 
                                         <a class="toggle-modal button is-light" aria-control="<%= o.id%>">Cancel</a>
@@ -90,6 +90,7 @@
             scoreName: 'review[stars]',
             score: 1
         })
+        $('#star_' + order_id ).raty('reload')
         $('#' + order_id).toggleClass('is-active');
     });
     }
