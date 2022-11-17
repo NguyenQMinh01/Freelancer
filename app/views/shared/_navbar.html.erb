@@ -36,12 +36,12 @@
                             <li><%= link_to "Login", new_user_session_path, class: "button is-success" %></li>
                             <li><%= link_to "Sign Up", new_user_registration_path, class: "button is-danger" %></li>
                         <% else %>
-                            <div class="navbar-item has-dropdown is-hoverable">
+                            <div class="navbar-item is-hoverable">
                                 <a class="navbar-link">
                                     <figure class="image is-24x24 m-r-5 avatar <%= current_user.status ? "online" : "offline"%>">
                                         <%= image_tag avatar_url(current_user), class: "is-rounded" %>
                                     </figure>
-                                    <%= current_user.full_name %>
+                                    <li><%= current_user.full_name %></li>
                                 </a>
                                 <ul class="navbar-dropdown">
                                     <%= link_to 'Dashboard', dashboard_path, class: "navbar-item" %>
@@ -88,10 +88,33 @@
 .nav li{
     padding-right: 0px;
 }
-
-
-
-
+.navbar-item {
+    margin-top: -1%;
+}
+.navbar-link{
+    background: transparent;
+}
+.navbar-item li{
+    color: white;
+}
+.navbar-item:hover li{
+    color: blue;
+}
+.navbar-item:hover .navbar-link{
+    background: transparent;
+}
+.navbar-item:hover .navbar-dropdown{
+    position: absolute;
+    top: 45px;
+    display: block;
+}
+.navbar-item .navbar-dropdown{
+    flex-basis: 100%;
+    padding-right: 10px;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
 
 </style>
 

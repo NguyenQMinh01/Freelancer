@@ -136,12 +136,12 @@
                                         <div class="carousel-inner">
                                             <% @gig.photos.each_with_index do |photo, index| %>
                                                 <% if index == 0 %>
-                                                    <div class="carousel-item active">
-                                                        <%= image_tag url_for(photo),class: "d-block w-100", width: "100%" %>
+                                                    <div class="carousel-item active" >
+                                                        <%= image_tag url_for(photo),class: "d-block w-100", width: "100%", height: "100%" %>
                                                     </div>
                                                 <% else %>
                                                     <div class="carousel-item">
-                                                        <%= image_tag url_for(photo),class: "d-block w-100", width: "100%" %>
+                                                        <%= image_tag url_for(photo),class: "d-block w-100", width: "100%", height: "100%" %>
                                                     </div>
                                                 <% end %>
                                             <% end %> 
@@ -241,9 +241,9 @@
                     <!-- Profile Section -->
                     <div class="column">
                         <div class="card">
-                            <div class="card-content is-horizontal-center is-flex" style="display: flex; justify-content: center; margin-bottom: -10%; margin-left: 80px;">
+                            <div class="card-content is-horizontal-center is-flex" style="display: flex; justify-content: center; margin-bottom: -10%;">
                                 <%= link_to user_show_path(@gig.user) do %>
-                                    <figure class="image" style="width: 60%">
+                                    <figure class="image">
                                         <!-- User Avatar Here -->
                                         <%= image_tag avatar_url(@gig.user), class: "is-rounded", style: "border: 2px solid black" %>
                                     </figure>

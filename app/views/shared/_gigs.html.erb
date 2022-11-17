@@ -1,8 +1,8 @@
 <% @gigs.each do |gig| %>
-<div class="column is-one-third">
-    <div class="card">
+<div class="column is-one-third"  style="height: 100%">
+    <div class="card"  style="height: 100%">
 
-        <div class="card-image">
+        <div class="card-image"  style="height: 55%">
             <%= link_to edit_gig_path(gig) do %>
             <figure class="image is-4by3">
                 <!-- Gig Cover Image Here -->
@@ -11,14 +11,14 @@
             <% end %> 
         </div>
 
-        <div class="card-content p-t-5 p-b-5">
+        <div class="card-content p-t-5 p-b-5"  style="height: 20%">
             <p class="subtitle is-6 m-b-5"><%= link_to gig.title.truncate(23), gig_path(gig) %></p>
             <span class="star-review"><i class="fa fa-star"></i>
                 4.8 <span class="has-text-primary">(23)</span>
             </span>                                        
         </div>
 
-        <footer class="card-footer">
+        <footer class="card-footer"  style="height: 25%">
             <!-- <% basic_price = gig.pricings.find { |p| p.pricing_type == 'basic' } %> -->
             <span class = "card-footer-item ">
                 <%= link_to  user_show_path(gig.user) do%>

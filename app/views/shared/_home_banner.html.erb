@@ -13,7 +13,7 @@
               <h2>Take a Glimpse Into The Beautiful Country Of:</h2>
               <h1>Caribbean</h1>
               <div class="border-button"><a href="#">Search</a></div>
-              <%# <div class="input-field center"><input class="validate" type="text"></div> %>
+              <input type="text" id="search" name="search">
             </div>           
           </div>
         </div>
@@ -24,6 +24,7 @@
               <h2>Take a Glimpse Into The Beautiful Country Of:</h2>
               <h1>Switzerland</h1>
               <div class="border-button"><a href="#">Search</a></div>
+              <input type="text" id="search" name="search">
             </div>
             
           </div>
@@ -34,6 +35,7 @@
               <h2>Take a Glimpse Into The Beautiful Country Of:</h2>
               <h1>France</h1>
               <div class="border-button"><a href="#">Search</a></div>
+              <input type="text" id="search" name="search">
             </div>
             
           </div>
@@ -43,7 +45,8 @@
             <div class="main-caption">
               <h2>Take a Glimpse Into The Beautiful Country Of:</h2>
               <h1>Thailand</h1>
-              <div class="border-button"><a href="#">Search</a></div>                          
+              <div class="border-button"><a href="#">Search</a></div>  
+              <input type="text" id="search" name="search">                        
             </div>    
           </div>
         </div>
@@ -59,12 +62,12 @@
       </nav>
     </div>
   </section>
-  
-              <div class="input-field center"><input class="validate" type="text"></div>
-  <style>
-
-
-  .input-field{
+ <style>
+#section-1 .content-slider input {
+    display: block;
+}
+input[type=text] {
+    transition: width 0.4s ease-in-out;
     position: relative;
     margin-top: 30px;
     height: 500px;
@@ -72,17 +75,12 @@
     width: 40%; 
     height: 45px; 
     border-radius: 25px;
-  }
-  .center {
-    background: red;
-    position: fixed;
-    display: flex;
+    margin-left: 30%;
     justify-content: center;
     align-items: center;
     text-align: center;
-  }
+    position: relative;
+}
 
-  </style>
-   
- 
+</style>
   <!-- ***** Main Banner Area End ***** -->

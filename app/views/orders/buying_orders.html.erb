@@ -43,7 +43,7 @@
                         <% if !o.completed? %>
                             <%= link_to 'Mark Complete', complete_order_path(o), method: :put, class: "button is-small is-primary #{'is-hidden'if o.completed?}"%>
                         <% else %>
-                            <div class = "button is-small is-outlined is-danger toggle-modal" aria-control="<%= o.id%>" onclick="click1()">Rating</div>
+                            <div class = "button is-small is-outlined is-danger toggle-modal" id="rating_button" aria-control="<%= o.id%>" >Rating</div>
 
                             <div class="modal" id="<%= o.id%>" >
                                 <div class="modal-content" style="width: 502px; box-shadow: 4px 4px 4px #AAA;">
@@ -59,7 +59,7 @@
                                             <%= f.text_area :review, class: "textarea"%>
                                         </div>
 
-                                        <a class="toggle-modal button is-light" aria-control="<%= o.id%>">Cancel</a>
+                                        <a class="button is-light" id="cancel" aria-control="<%= o.id%>">Cancel</a>
                                         <%= f.submit "Add Review", class: "button is-danger"%>
                                         <% end %>
                                     </div>
@@ -84,8 +84,8 @@
 </style>
 
 <script>
-    function click1(){
-        $('.toggle-modal').on('click', (e) => {
+    var t = document.getElementById("rating_button");
+    t.addEventListener("click", (e) => {
         e.stopPropagation();
         e.preventDefault();
 
@@ -98,8 +98,38 @@
         $('#star_' + order_id ).raty('reload')
         $('#' + order_id).toggleClass('is-active');
     });
-    }
 
+    var cancel = document.getElementById("cancel");
+    cancel.addEventListener("click", (e) => {
+        e.stopPropagation();
+        e.preventDefault();
+
+        var order_id = e.target.getAttribute('aria-control');
+        $('#star_' + order_id ).raty({
+            path: '/assets/raty-js/lib/images',
+            scoreName: 'review[stars]',
+            score: 1
+        })
+        $('#star_' + order_id ).raty('reload')
+        $('#' + order_id).toggleClass('is-active');
+    });
+
+    // var t = document.getElementById("rating_button");
+    // t.addEventListener("click", function(){ 
+    //     $('.toggle-modal').on('click', (e) => {
+    //         e.stopPropagation();
+    //         e.preventDefault();
+
+    //         var order_id = e.target.getAttribute('aria-control');
+    //         $('#star_' + order_id ).raty({
+    //             path: '/assets/raty-js/lib/images',
+    //             scoreName: 'review[stars]',
+    //             score: 1
+    //         })
+    //         $('#star_' + order_id ).raty('reload')
+    //         $('#' + order_id).toggleClass('is-active');
+    //     });
+    // });
 
 </script>
 
