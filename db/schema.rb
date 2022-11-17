@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_15_162303) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_16_070728) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -163,6 +163,21 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_15_162303) do
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_requests_on_category_id"
     t.index ["user_id"], name: "index_requests_on_user_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.text "review"
+    t.integer "stars"
+    t.uuid "order_id", null: false
+    t.bigint "gig_id"
+    t.bigint "buyer_id"
+    t.bigint "seller_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["buyer_id"], name: "index_reviews_on_buyer_id"
+    t.index ["gig_id"], name: "index_reviews_on_gig_id"
+    t.index ["order_id"], name: "index_reviews_on_order_id"
+    t.index ["seller_id"], name: "index_reviews_on_seller_id"
   end
 
   create_table "users", force: :cascade do |t|
