@@ -4,5 +4,5 @@
 //= link_tree ../../../vendor/javascript .js
 //= require_tree .
 //= require dropzone
-//= require jquery
 //= require raty-js
+//= require jquery-raty-js

@@ -7,6 +7,7 @@
     "bulma-extensions": "^6.2.7",
     "dropzone": "^6.0.0-beta.2",
     "jquery": "^3.6.1",
+    "jquery-raty-js": "^2.8.0",
     "noty": "^3.2.0-beta-deprecated",
     "raty-js": "2.9.0",
     "trix": "^2.0.0-beta.0",
