@@ -46,12 +46,12 @@
                             <div class = "button is-small is-outlined is-danger toggle-modal" aria-control="<%= o.id%>" onclick="click1()">Rating</div>
 
                             <div class="modal" id="<%= o.id%>" >
-                                <div class="modal-content">
-                                    <div class="box">
+                                <div class="modal-content" style="width: 502px; box-shadow: 4px 4px 4px #AAA;">
+                                    <div class="box" style="height: 270px; width: 500px;">
                                         <%= form_for Review.new do |f| %>
                                         <%= f.hidden_field :order_id , value: o.id %>
 
-                                        <div class="field">
+                                        <div class="field" >
                                             <div id = "star_<%= o.id%>"></div>
                                         </div>
                                         
@@ -76,7 +76,12 @@
     </div>
 </section>
 
-
+<style>
+    .field img{
+        width: 5%;
+        height: 5%;
+    }
+</style>
 
 <script>
     function click1(){
