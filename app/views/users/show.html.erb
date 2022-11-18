@@ -158,14 +158,16 @@
                             <figure class=" media-left">
                                 <p class="image is-64x64">
                                     <%= image_tag avatar_url(review.buyer), class: "is-rounded", style: "border: 2px solid black;"%>
-
+                                    
                                 </p>
                             </figure> 
                             <div class="media-content">
+                                <a> Gigs <%= review.gig.title%></a>
                                 <div class="content">
                                     <p>
                                         <strong><%= review.buyer.full_name%></strong><br>
                                         <%= review.review%>
+                                        
                                     </p>
 
                                     <small><%= time_ago_in_words(review.created_at)%></small>
