@@ -2,12 +2,13 @@ class MessagesController < ApplicationController
   def create
     if current_user.id == message_params[:receiver_id]
       redirect_to request.referrer, alert: "Cannot send message to yourself"
-  end
+    end
+  
     
   conversation = Conversation.where("(sender_id = ? AND receiver_id = ?) OR (sender_id = ? AND receiver_id = ?)",
                                   current_user.id, message_params[:receiver_id], message_params[:receiver_id], current_user.id ).first
-
-  conversation = Conversation.create(sender_id: current_user.id, receiver_id: message_params[:receiver_id) if conversation.present?
+  
+  conversation = Conversation.create(sender_id: current_user.id, receiver_id: message_params[:receiver_id]) if !conversation.present?
 
 
   @message = Message.new(user_id: current_user.id, conversation_id: conversation.id, content: message_params[:content])
@@ -18,8 +19,10 @@ class MessagesController < ApplicationController
     redirect_to redirect_to request.referrer, notice: "Cannot sent the message"
   end
 
+end
+
   private
-  def massage_params
+  def message_params
     params.require(:message).permit(:content, :receiver_id)
   end
 end
