@@ -7,13 +7,14 @@
       <input type="radio" id="banner3" class="sec-1-input" name="banner">
       <input type="radio" id="banner4" class="sec-1-input" name="banner">
       <div class="slider">
+        <div class="border-button"><a style="z-index: 2;" href="#">Search</a></div>
         <input type="text" id="search" name="search"  style="z-index: 2;">
         <div id="top-banner-1" class="banner">
           <div class="banner-inner-wrapper header-text">
             <div class="main-caption">
               <h2>Take a Glimpse Into The Beautiful Country Of:</h2>
               <h1>Caribbean</h1>
-              <div class="border-button"><a href="#">Search</a></div>
+              <%# <div class="border-button"><a href="#">Search</a></div> %>
             </div>           
           </div>
         </div>
@@ -23,7 +24,7 @@
             <div class="main-caption">
               <h2>Take a Glimpse Into The Beautiful Country Of:</h2>
               <h1>Switzerland</h1>
-              <div class="border-button"><a href="#">Search</a></div>
+              <%# <div class="border-button"><a href="#">Search</a></div> %>
             </div>
             
           </div>
@@ -33,7 +34,7 @@
             <div class="main-caption">
               <h2>Take a Glimpse Into The Beautiful Country Of:</h2>
               <h1>France</h1>
-              <div class="border-button"><a href="#">Search</a></div>
+              <%# <div class="border-button"><a href="#">Search</a></div> %>
             </div>
             
           </div>
@@ -43,7 +44,7 @@
             <div class="main-caption">
               <h2>Take a Glimpse Into The Beautiful Country Of:</h2>
               <h1>Thailand</h1>
-              <div class="border-button"><a href="#">Search</a></div>                
+              <%# <div class="border-button"><a href="#">Search</a></div>%>
             </div>    
           </div>
         </div>
@@ -60,7 +61,18 @@
     </div>
   </section>
 <style>
-
+:root {
+  --top: 40%;
+}
+#section-1 .content-slider .slider .banner .banner-inner-wrapper .main-caption {
+  top: 40%;
+  --top: top;
+}
+#section-1 .content-slider .border-button {
+  display: block;
+  text-align: center;
+  top: 80%;
+}
 #section-1 .content-slider input {
   display: block;
 }
@@ -76,8 +88,7 @@ input[type=text] {
   justify-content: center;
   align-items: center;
   text-align: center;
-  position: relative;
-  top: 385px;
+  top: 10px;
 }
 
 </style>
