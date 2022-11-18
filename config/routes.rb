@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'message/create'
     devise_for :admin_users, ActiveAdmin::Devise.config
     ActiveAdmin.routes(self)
     # get 'requests/index'
@@ -31,6 +32,7 @@ Rails.application.routes.draw do
     post '/offers', to: 'offers#create'
     post '/comments', to: 'comments#create'
     post '/reviews', to: 'reviews#create', as: "reviews"
+    post '/messages', to: 'messages#create'
 
     put '/offers/:id/accept', to: 'offers#accept', as: 'accept_offer'
     put '/offers/:id/reject', to: 'offers#reject', as: 'reject_offer'

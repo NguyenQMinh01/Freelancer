@@ -17,14 +17,17 @@
                                 </figure>
 
                             </div>
-                                
 
                             <div class="card-content">
 
                             
-                                <!-- Upload Button -->
+                                <!-- Upload Button Contact -->
                                 <div class="content has-text-centered">
-                                    <p class="title is-5"><%= @user.full_name %></p>     
+                                    <p class="title is-5"><%= @user.full_name %></p>  
+                                       <% if current_user.id != @user.id %>
+
+                                            <a onclick="onclick()" class="button is-black is-outlined is-fullwidth toggel-contact">Contact Via Message</a>
+                                       <% end %>
                                 </div>
                                 <hr class="h-10">
                                 
@@ -189,3 +192,78 @@
         </div>
     </div>
 </section>
+
+<!----  MODALLL  CONTACT MESSAGES    -->
+
+<div class="modal" id="contact-form">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Send a Message</p>
+            <button class="delete toggle-contact" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="columns">
+                <div class="column is-one-third">
+                    <div class="card" st>
+                        <div class="card-content is-horizontal-center is-flex">
+                            <figure class="image is-128x128">
+                                <%= image_tag avatar_url(@user), class: "is-rounded"%>
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <hr>
+                            <strong>Please include:</strong>
+                            <ul class="is-size-7" style="list-style:initial">
+                                <li>Ruby on rails</li>
+                                <li>Design Web</li>
+                                <li>Fullstack developer</li>
+                                <li>nickname tinder: ngồi trong toalet gào thét tên em</li>
+                            </ul>
+                        </div>
+                     </div>
+                </div>   
+                <div class="column">
+                    <%= form_with model: Message.new do |f| %>
+                        <%= f.hidden_field :receiver_id, value: @user.id%>
+                        <div class="card-content">
+                            <div class="field">
+                                <div class="control">
+                                    <%= f.text_area :content, class: "textarea" %>
+                                </div>
+                            </div>
+                            <%= f.submit "Send" , class: "button is-danger is-pulled-right" %>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+<script>
+            function onclick(){
+                var toggle_modal = $('.toogle-contact');
+            if(toggle_modal )
+            {
+                toggle_modal.on('click', function(e){
+                    e.stopPropagation();
+                    e.preventDefault();
+                    var form = document.getElementById('contact-form');
+                    form.classList.toggle('is-active');
+                });
+            }
+            }
+           
+            
+    
+
+
+            // var e = window.event;
+            // e.stopPropagation();
+            // e.preventDefault();
+            // var form = document.getElementById('contact-form');
+            // form.classList.toggle('is-active');
+      
+
+   
+</script>

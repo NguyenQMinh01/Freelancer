@@ -110,3 +110,6 @@ gem 'rails-i18n'
 #bootrap
 gem 'bootstrap'
 gem 'popper_js'
+
+
+
