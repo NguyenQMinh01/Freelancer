@@ -26,7 +26,7 @@
                                     <p class="title is-5"><%= @user.full_name %></p>  
                                        <% if current_user.id != @user.id %>
 
-                                            <a onclick="onclick()" class="button is-black is-outlined is-fullwidth toggel-contact">Contact Via Message</a>
+                                            <a onclick="message()" class="button is-black is-outlined is-fullwidth toggle-contact">Contact Via Message</a>
                                        <% end %>
                                 </div>
                                 <hr class="h-10">
@@ -200,7 +200,7 @@
     <div class="modal-card">
         <header class="modal-card-head">
             <p class="modal-card-title">Send a Message</p>
-            <button class="delete toggle-contact" aria-label="close"></button>
+            <button onclick="close_message()" class="delete toggle-contact" aria-label="close"></button>
         </header>
         <section class="modal-card-body">
             <div class="columns">
@@ -241,29 +241,27 @@
     </div>
 </div>
 <script>
-            function onclick(){
-                var toggle_modal = $('.toogle-contact');
-            if(toggle_modal )
-            {
-                toggle_modal.on('click', function(e){
-                    e.stopPropagation();
-                    e.preventDefault();
-                    var form = document.getElementById('contact-form');
-                    form.classList.toggle('is-active');
-                });
-            }
-            }
-           
-            
-    
+    function message(){
+        var toggle_modal = $('.toggle-contact');
+        if(toggle_modal )
+        {
+            var e = window.event;
+            e.stopPropagation();
+            e.preventDefault();
+            var form = document.getElementById('contact-form');
+            form.classList.toggle('is-active');
+        }
+    }
 
-
-            // var e = window.event;
-            // e.stopPropagation();
-            // e.preventDefault();
-            // var form = document.getElementById('contact-form');
-            // form.classList.toggle('is-active');
-      
-
-   
+    function close_message(){
+        var toggle_modal = $('.toggle-contact');
+        if(toggle_modal )
+        {
+            var e = window.event;
+            e.stopPropagation();
+            e.preventDefault();
+            var form = document.getElementById('contact-form');
+            form.classList.toggle('is-active');
+        }
+    }
 </script>
