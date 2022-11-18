@@ -77,4 +77,10 @@ rails g model Offer note:text amount:integer days:integer status:integer request
 * khi từ nhánh local rebase tới dev mà hiện lỗi --continue | --abort | --skip
 * git rebase --abort là nhánh head sẽ nhảy qua dev local rồi sau đó reset về commit mới nhất của nhánh local
 
-rails g model Review review:text stars:integer order:references gig:references buyer:references seller:references
+* rails g model Review review:text stars:integer order:references gig:references buyer:references seller:references
+
+
+* Create app chat message
+
+* rails g model Conversation sender:references receiver:references
+* rails g model Message content:text user:references conversation:references

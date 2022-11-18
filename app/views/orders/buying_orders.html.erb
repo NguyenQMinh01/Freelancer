@@ -87,6 +87,7 @@
         var e = window.event;
         e.stopPropagation();
         e.preventDefault();
+
         var order_id = e.target.getAttribute('aria-control');
         $('#star_' + order_id ).raty({
             starOff:  '<%= asset_path("star-off.png") %>',
@@ -115,7 +116,6 @@
         $('#' + order_id).toggleClass('is-active');
     }
     
-
 
 </script>
 
