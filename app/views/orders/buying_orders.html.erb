@@ -104,16 +104,18 @@
         var e = window.event;
         e.stopPropagation();
         e.preventDefault();
-
         var order_id = e.target.getAttribute('aria-control');
         $('#star_' + order_id ).raty({
-            path: '/assets/raty-js/lib/images',
+            starOff:  '<%= asset_path("star-off.png") %>',
+            starOn: '<%= asset_path("star-on.png") %>',
             scoreName: 'review[stars]',
             score: 1
         })
         $('#star_' + order_id ).raty('reload')
         $('#' + order_id).toggleClass('is-active');
     }
+    
+
 
 </script>
 
