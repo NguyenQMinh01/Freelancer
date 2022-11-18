@@ -102,40 +102,87 @@
 
             <!-- RIGHT SIDE -->
             <div class="column">
+                <div class="columns is-multiline">
+
+                <!-- Sample Gig -->
+                <% @user.gigs.each do |gig| %>
+                <div class="column is-one-third">
+                    <div class="card">
+
+                        <div class="card-image">
+                            <%= link_to edit_gig_path(gig) do %>
+                            <figure class="image is-4by3">
+                                <!-- Gig Cover Image Here -->
+                                <%= image_tag gig_cover(gig) %>
+                            </figure>
+                            <% end %> 
+                        </div>
+
+                        <div class="card-content p-t-5 p-b-5">
+                            <p class="subtitle is-6 m-b-5"><%= link_to gig.title, gig_path(gig) %></p>
+                            <span class="star-review"><i class="fa fa-star"></i>
+                                <%= gig.average_rating %>
+                                <span class="has-text-primary">Reviews (<%= gig.reviews.count%>)</span>
+                            </span>                                        
+                        </div>
+
+                        <footer class="card-footer">
+                            <% basic_price = gig.pricings.find { |p| p.pricing_type == 'basic' } %>
+
+                            <a class="has-text-danger is-block card-footer-item has-text-center">
+                                <% if !basic_price.nil? && basic_price.price.to_s != ""  %>
+                                    <span class="small-title">STARTING AT </span>
+                                    <strong>$<%= basic_price.price  %></strong> 
+                                <% else %>
+                                    <strong> 
+                                        <span class="small-title has-text-dark">NO PRICICNG YET </span>
+                                    </strong>    
+                                <% end %>                                       
+                            </a>
+                        </footer>  
+                        
+                    </div>
+                </div>
+            <% end %>
+        </div>
+
                 <div class="card">
                     <div class = "card-hearder">
                         <div class="card-header-title">Latest Review</div>
                     </div>
 
-                    <!-- Create New Gig -->
+                    <!-- Sample reviews -->
                     <div class="card-content">
+                        <% @reviews.each do |review|%>
                         <article class="media">
                             <figure class=" media-left">
                                 <p class="image is-64x64">
-                                    <%= image_tag avatar_url(@user), class: "is-rounded", style: "border: 2px solid black;"%>
-
+                                    <%= image_tag avatar_url(review.buyer), class: "is-rounded", style: "border: 2px solid black;"%>
+                                    
                                 </p>
                             </figure> 
                             <div class="media-content">
+                                <a> Gigs <%= review.gig.title%></a>
                                 <div class="content">
                                     <p>
-                                        <strong>Hello</strong> <br>
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui saepe ipsam quas ducimus dolore rem corrupti officia, neque perspiciatis et fugiat laudantium laboriosam nemo corporis, quo autem illum quaerat minima?
+                                        <strong><%= review.buyer.full_name%></strong><br>
+                                        <%= review.review%>
+                                        
                                     </p>
 
-                                    <small>10m</small>
+                                    <small><%= time_ago_in_words(review.created_at)%></small>
                                 </div>
                             </div>
 
                             <div class="media-right">
-                                <span class="star-review"><i class="fa fa-star"></i>5.0</span>
+                                <span class="star-review"><i class="fa fa-star"></i><%= review.stars %></span>
                             </div>
                         </article>
+
+                        <% end %>
                     </div>
 
-                    <!-- Sample Gig -->
                     <div class="column is-one-third has-text-centered"></div>
-                    
                 </div>
             </div>
             
