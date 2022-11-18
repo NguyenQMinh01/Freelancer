@@ -39,9 +39,9 @@ class RequestsController < ApplicationController
     @category_id = params[:category]
 
     if @category_id.present?
-      @requests = Request.where(category_id: @category_id).page(params[:page]).per(1)
+      @requests = Request.where(category_id: @category_id).page(params[:page]).per(6)
     else
-      @requests = Request.all.page(params[:page]).per(1)
+      @requests = Request.all.page(params[:page]).per(6)
     end
   end
 
