@@ -31,8 +31,11 @@
       <div class="row">
         <div class="col-lg-5">
           <div class="section-heading">
-            <h2>Visit One Of Our Countries Now</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
+            <h2>Hire the best freelancers for any job, online.</h2>
+            <li><p>World's largest freelance marketplace</p></li>
+            <li><p>Any job you can possibly think of</p></li>
+            <li><p>Save up to 90% & get quotes for free</p></li>
+            <li><p>Pay only when you're 100% happy</p></li>
           </div>
         </div>
       </div>
@@ -53,19 +56,19 @@
                     <div class="col-lg-8 col-sm-7">
                       <div class="right-content">
                         <h4><%= gig.title.truncate(20) %></h4>
-                        <span>Europe</span>
+                        <span><%= gig.user.full_name %></span>
                         <div class="main-button">
                           
                           <%= link_to "Show More", gig_path(gig)%>
                         </div>
                         <p><%= gig.description %></p>
                         <ul class="info">
-                          <li><i class="fa fa-user"></i> 8.66 Mil People</li>
-                          <li><i class="fa fa-globe"></i> 41.290 km2</li>
-                          <li><i class="fa fa-home"></i> $1.100.200</li>
+                          <li><i class="fa fa-user"></i> <%= gig.pricings.first.pricing_type %></li>
+                          <li><i class="fa fa-globe"></i> <%= gig.pricings.first.delivery_time %></li>
+                          <li><i class="fa fa-home"></i> $<%= gig.pricings.first.price %></li>
                         </ul>
                         <div class="text-button">
-                          <a href="about.html">Need Directions ? <i class="fa fa-arrow-right"></i></a>
+                          <a href="<%= user_show_path(gig.user.id)%>">Show User <i class="fa fa-arrow-right"></i></a>
                         </div>
                       </div>
                     </div>

@@ -54,7 +54,7 @@
                         <% end %>
                     </ul>  
                      
-                    <a class='menu-trigger' onclick="show_menu()">
+                    <a class='menu-trigger' id="menu-trigger" onclick="show_menu()">
                         <span>Menu</span>
                     </a>
                     <!-- ***** Menu End ***** -->
@@ -67,16 +67,106 @@
         <%= render 'shared/navbar1' %>
     <% end %>
   </header>
+<div class="left-navbar">
+    <div id="left_menu" class="modal">
+        <a href="/" class="logo">
+            <%= image_tag 'https://www.f-cdn.com/assets/main/en/assets/freelancer-logo-old.svg', style: "width: 80%" %>
+        </a>
+        <li><%= link_to 'Home', root_path%></li>
+        <li><%= link_to 'Dashboard', dashboard_path%></li>
+        <li><%= link_to 'Post gig', new_gig_path %></li>
+        <li><%= link_to 'Search gig', search_path %></li>
+        <% if (!user_signed_in?) %>
+            <li><%= link_to "Login", new_user_session_path, class: "button is-success" %></li>
+            <li><%= link_to "Sign Up", new_user_registration_path, class: "button is-danger" %></li>
+        <% else %>
+            <div class="navbar-item is-hoverable" style="min-width: 200px">
+                <span class="navbar-link inline-block" style="" onclick="mobile_dropdown('mobile-user')" >
+                    <figure class="image is-24x24 m-r-5 avatar <%= current_user.status ? "online" : "offline"%>" style="vertical-align: middle;">
+                        <%= image_tag avatar_url(current_user), class: "is-rounded" %>
+                    </figure>
+                    <a style="vertical-align: middle; color: white;"><%= current_user.full_name %></a>
+                </span> 
+                <ul style="display: none" id="mobile-user">
+                    <li><%= link_to 'Dashboard', dashboard_path%></li>
+                    <li><%= link_to "Setting account", edit_user_registration_path%></li>
+                    <li><%= link_to 'Profile', user_show_path(current_user.id)%></li>
+                    <hr class="navbar-divider" style="color: black;border: 1px solid;">
+                    <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+                </ul>
+            </div>
+        <% end %>
+        
+        <% if (user_signed_in?) && !current_page?(root_path) && !current_page?("/gigs/#{params[:id]}") && !current_page?(search_path) %>       
+            <hr style="color: white"/>
+            <div class="sub-nav" data-turbo= false>
+                <a href="#"><li>My Project</li></a>
+                <div class="navbar-item" style="min-width: 200px">
+                    <span class="navbar-link inline-block" style="" onclick="mobile_dropdown('mobile-buying')" >
+                        <a style="">(Freelancer) Buying ></a>
+                    </span> 
+                    <ul style="display: none; margin-left: 20px;" id="mobile-buying">
+                        <p><%= link_to 'Freelancer Post Request', new_request_path%></p>
+                        <p><%= link_to 'Manage Request', requests_path%></p>
 
+                        <p><a>Contact</a></p>
+                        <hr class="dropdown-divider">
+                        <p><a>Report an issue</a></p>
+                    </ul>
+                </div>
+                <div class="navbar-item" style="min-width: 200px">
+                    <span class="navbar-link inline-block" style="" onclick="mobile_dropdown('mobile-request')" >
+                        <a style="">(Freelancer) Requests ></a>
+                    </span> 
+                    <ul style="display: none; margin-left: 20px;" id="mobile-request">
+                        <p><%= link_to 'Active Request', all_requests_path%></p>
+                        <p><%= link_to 'Offers sent', my_offers_path%></p>
+                        <hr class="dropdown-divider">
+                        <p><a>Report an issue</a></p>
+                    </ul>
+                </div>
+                <div class="navbar-item" style="min-width: 200px">
+                    <span class="navbar-link inline-block" style="" onclick="mobile_dropdown('mobile-order')" >
+                        <a style="">Orders ></a>
+                    </span> 
+                    <ul style="display: none; margin-left: 20px;" id="mobile-order">
+                        <p><%= link_to 'Selling Orders', selling_orders_path%></p>
+                        <hr class="dropdown-divider">
+                        <p><%= link_to 'Buying Orders', buying_orders_path%></p>
+                    </ul>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</div>
 <script>
 
+    function show_menu(){
+        var menu_trigger = document.getElementById("menu-trigger");
+        var left_menu = document.getElementById("left_menu");
+        if (left_menu.style.width != "60%") {
+            // left_menu.style.display = 'block';
+            left_menu.style.width = "60%";
+        } else {
+            // left_menu.style.display = 'none';
+            left_menu.style.width = "0";
+        }
+    }
+    function mobile_dropdown(id){
+        var mobile_dropdown = document.getElementById(id);
+        if (mobile_dropdown.style.display != 'block') {
+            mobile_dropdown.style.display = 'block';
+        } else {
+            mobile_dropdown.style.display = 'none';
+        }
+    }
 </script>
 
 <style>
 .main-nav{
     padding-right: 100px;
     margin-right: -50px;
-    
+    min-width: 1200px;
 }
 .nav{
     padding-right: 0px;
@@ -117,8 +207,60 @@
 }
 
 .menu-trigger{
+    display: none !important;
+}
+.left-navbar .modal{
+    display: block;
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 100;
+    /* background: #22b3c1; */
+    background: #1ba1ad;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 20px;
+}
+.left-navbar .modal li{
+    color: white;
+    margin: 20px;
+    min-width: 500px;
+    margin-left: 20px;
+}
+.left-navbar .modal a{
+    font-size: 150%;
+    color: white;
+}
+.left-navbar .modal li:hover a{
+    color:#c3c7ca;  
+}
+.left-navbar .modal .button{
+    min-width: 100px;
+    margin: 0px;
+    width: 160px;
+}
+.left-navbar .modal li .current_name{
+    width: 100px;
+    color: white;
+    margin: 20px;
+}
+.left-navbar span .navbar-link ::after{
 
 }
-
+.left-navbar .modal .sub-nav a{
+    font-size: 110%;
+}
+.left-navbar .modal .sub-nav li{
+    margin-left: 25px;
+}
+.left-navbar .modal .sub-nav .navbar-item:hover a{
+    color:#c3c7ca;  
+}
+.header-area .main-nav .menu-trigger span:after {
+    width: 100%;
+}
+.header-area .main-nav .menu-trigger span:before {
+    width: 100%;
+}
 </style>
 

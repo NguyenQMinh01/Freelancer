@@ -144,76 +144,68 @@
                     
                 </div>
             </div>
-            <!-- RIGHT SIDE -->
-            <div class="column">
-                <div class="columns is-multiline">
-
-                   <!-- Create New Gig -->
-            
-                        <div class="column is-one-third has-text-centered">
-                            <%= link_to new_gig_path do %>
-                            <div class="card">
-
-                                <div class="card-image card-content is-horizontal-center is-flex " style=" justify-content: center;">
-                                    <figure class="image is-128x128 ">
-                                        <!-- Plus Image Here -->
-                                        <%= image_tag '106230_add_icon.png' %>
-                                    </figure>
-                                </div>
-
-                                <div class="card-content">
-                                    <strong>Create a new gig</strong>
-                                </div>    
-
-                            </div>
-                            <% end %>
-                        </div>
-                                            
-
-                    <!-- Sample Gig -->
-
-                    <% current_user.gigs.each do |gig| %>
-                        <div class="column is-one-third">
-                            <div class="card">
-
-                                <div class="card-image">
-                                    <%= link_to edit_gig_path(gig) do %>
-                                    <figure class="image is-4by3">
-                                        <!-- Gig Cover Image Here -->
-                                        <%= image_tag gig_cover(gig) %>
-                                    </figure>
-                                    <% end %> 
-                                </div>
-
-                                <div class="card-content p-t-5 p-b-5">
-                                    <p class="subtitle is-6 m-b-5"><%= link_to gig.title, gig_path(gig) %></p>
-                                    <span class="star-review"><i class="fa fa-star"></i>
-                                        <%= gig.average_rating %>
-                                        <span class="has-text-primary">Reviews (<%= gig.reviews.count%>)</span>
-                                    </span>                                        
-                                </div>
-
-                                <footer class="card-footer">
-                                    <% basic_price = gig.pricings.find { |p| p.pricing_type == 'basic' } %>
-
-                                    <a class="has-text-danger is-block card-footer-item has-text-center">
-                                        <% if !basic_price.nil? && basic_price.price.to_s != ""  %>
-                                            <span class="small-title">STARTING AT </span>
-                                            <strong>$<%= basic_price.price  %></strong> 
-                                        <% else %>
-                                            <strong> 
-                                                <span class="small-title has-text-dark">NO PRICICNG YET </span>
-                                            </strong>    
-                                        <% end %>                                       
-                                    </a>
-                                </footer>  
-                                
-                            </div>
-                        </div>
-                    <% end %>
+            <!-- RIGHT SIDE --> 
+            <div class="card" style="width: 340%; height: 120%;margin-top: 1%;">
+                <div class="column">
+                <div class="card">
+                    <div class="card-header-title is-centered">
+                        <h2>All Gigs</h2>
+                    </div>
                 </div>
+                <hr/>
+                    <div class="columns is-multiline">
+
+                        <!-- Sample Gig -->
+
+                        <% @gig.each do |gig| %>
+                            <div class="column is-one-third">
+                                <div class="card">
+
+                                    <div class="card-image">
+                                        <%= link_to edit_gig_path(gig) do %>
+                                        <figure class="image is-4by3">
+                                            <!-- Gig Cover Image Here -->
+                                            <%= image_tag gig_cover(gig) %>
+                                        </figure>
+                                        <% end %> 
+                                    </div>
+
+                                    <div class="card-content p-t-5 p-b-5">
+                                        <p class="subtitle is-6 m-b-5"><%= link_to gig.title, gig_path(gig) %></p>
+                                        <span class="star-review"><i class="fa fa-star"></i>
+                                            <%= gig.average_rating %>
+                                            <span class="has-text-primary">Reviews (<%= gig.reviews.count%>)</span>
+                                        </span>                                        
+                                    </div>
+
+                                    <footer class="card-footer">
+                                        <% basic_price = gig.pricings.find { |p| p.pricing_type == 'basic' } %>
+
+                                        <a class="has-text-danger is-block card-footer-item has-text-center">
+                                            <% if !basic_price.nil? && basic_price.price.to_s != ""  %>
+                                                <span class="small-title">STARTING AT </span>
+                                                <strong>$<%= basic_price.price  %></strong> 
+                                            <% else %>
+                                                <strong> 
+                                                    <span class="small-title has-text-dark">NO PRICICNG YET </span>
+                                                </strong>    
+                                            <% end %>                                       
+                                        </a>
+                                    </footer>  
+                                    
+                                </div>
+                            </div>                           
+                        <% end %>
+                    </div>
+                <!-- Pagination -->
+                <div class="card">
+                    <div class="card-header-title is-centered">
+                        <%= paginate @gig %>
+                    </div>
+                </div>
+                </div>
+                
             </div>
-            
         </div>
     </div>
 </section>

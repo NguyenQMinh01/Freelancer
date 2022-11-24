@@ -1,5 +1,5 @@
-<section class="section">
-    <div class="container">
+<section class="section" style="margin-top: 5px;">
+    <div class="container" style="padding: 5%;margin: center; margin-top: 5px; width: 80%; border: 3px solid;box-shadow: 4px 4px 4px #AAA; ">
       <div class="steps" id="stepsDemo">
   
         <!-- 5 STEPS -->
@@ -35,7 +35,7 @@
         </div>
   
         <!-- FORM TO CREATE A NEW GIG HERE-->
-        <%= form_for @gig, html: {class: "steps-content m-l-100 m-r-100"} do |f|  %>
+        <%= form_for @gig, html: {class: "steps-content m-l-100 m-r-100", style: "width: 20%;"} do |f|  %>
         <%= hidden_field_tag 'step', @step %>  
 
             <%= render 'step1', f: f %>

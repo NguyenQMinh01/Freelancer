@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
   def dashboard
+    @gig = Gig.where("gigs.user_id = ?", current_user.id).page(params[:page]).per(6)
   end
 
   def show

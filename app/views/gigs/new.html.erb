@@ -1,5 +1,5 @@
-<section class="section">
-    <div class="container">
+<section class="section" style="margin-top: 5px;">
+    <div class="container" style="padding: 5%;margin: center; margin-top: 5px; width: 80%; border: 3px solid;box-shadow: 4px 4px 4px #AAA; ">
       <div class="steps" id="stepsDemo">
   
         <!-- 5 STEPS -->
@@ -42,12 +42,10 @@
         </div>
         <div class = "field">
         <label class="label">Category</label>
-        <%= f.select(:category_id, options_for_select(@categories.map{|c| [c.name, c.id]})) %>
-        </div>
-
-        <div class="field">
-          <label  class="check">
-              <%= f.check_box :has_single_pricing, class: "checkbox", onchange: "this.form.sumit();"%> Has_single_price
+        <%= f.select(:category_id, options_for_select(@categories.map{|c| [c.name, c.id]}), {}, { :style => 'width: 35%' }) %>
+        
+          <label  class="check" style= "float: right">
+              <%= f.check_box :has_single_pricing, class: "checkbox", onchange: "this.form.sumit();"%> Has single price
           </label>
         </div>
 
