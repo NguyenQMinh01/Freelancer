@@ -1,0 +1,113 @@
+<section class="section">
+    <div class="columns">
+    
+        <div class="column is-4">
+            <nav class="menu">
+                <p class="menu-label">
+                    Chats
+                </p>
+                <ul class="menu-list">
+                    <% @conversations.each do |conversation|%>
+                        <% @client = conversation.sender_id == current_user.id ? conversation.receiver : conversation.sender   %>
+                        <%= link_to conversations_detail_path(@client.id) do  %>
+                            <li>
+                            <article class="message <%= 'is-primary' if conversation.id ==  @conversation.id %>">
+                                <div class="message-body">
+                                    <div class="media">
+                                        <div class="media-left">
+                                            <figure class="image is-32x32 m-r-5 avatar online">
+                                                <%= image_tag avatar_url(@client), class: "is-rounded"%>
+                                            </figure>
+                                        </div>                                
+                                        <div class="media-content">
+                                            <p class="title is-6"><%= @client.full_name %></p>
+                                            <p class="subtitle is-7">
+                                                <%= (conversation.last_message.user_id == current_user.id ? "You: #{conversation.last_message.content}" : conversation.last_message.content).truncate(20) %>
+                                               .<%= time_ago_in_words(conversation.last_message.updated_at.strftime("%b %Y"))%>
+
+                                            </p>
+                                        </div>
+                                        <div class="media-right">
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>                    
+                            </li>
+                        <% end %>
+                    <% end %>
+                    
+                </ul>
+            </nav>
+        </div>
+
+        <div class="column is-8">
+
+            <article class="media">
+                <div class="media-left">
+                    <figure class = "image is-64x64">
+                        <%= image_tag avatar_url(@user), class: "is-rounded"%>
+                    </figure>
+                </div> 
+                <div class="media-content">
+                    <div class="content">
+                        <h3><%= @user.full_name %></h3>
+                        <small>Language: <%= @user.language %></small>
+                    </div>
+                </div>
+            </article>
+            <hr>
+
+            <!--My Messages -->
+            <div class="columns is-multiline">
+                <% @messages.each do |message| %>
+                    <% if message.user.id == current_user.id%>
+                        <div class="column is-7 is-offset-5">
+                            <p class="notification is-primary conversation-message" style="border-radius: 20px;">
+                                <%= message.content %>
+                            </p>
+                            <!-- <span class="subtitle is-7"><%= time_ago_in_words(message.created_at)%></span> -->
+                        </div>
+
+                        <% else %>
+                        <div class="column is-7">
+                            <article class="media">
+                                <div class="media-left">
+                                    <figure class = "image is-64x64">
+                                        <%= image_tag avatar_url(@user), class: "is-rounded"%>
+                                    </figure>
+                                </div> 
+                                <div class="media-content">
+                                    <p class="notification is-primary conversation-message">
+                                        <%= message.content %>
+                                    </p>
+                                    <!-- <span class="subtitle is-7"><%= time_ago_in_words(message.created_at)%></span> -->
+                                </div>
+                            </article>
+                        </div>
+                    <% end %>
+                <% end %>
+            </div>
+
+            <!-- Send Message -->
+            <div class="column m-t-25">
+                <%= form_with model: Message.new do |f| %>
+                    <%= f.hidden_field :receiver_id, value: @user.id %>
+                    <div class= "field has-addons">
+                        <div class = "control" style = "width: 100%">
+                            <%= f.text_field :content, class: "input" , placeholder: "Aa"%>
+                        </div>
+                        <div class="control">
+                            <%= f.submit "Send", class: "button is-primary" %>
+                        </div>
+                    </div>
+                    
+                
+                <% end %>
+            </div>
+
+
+         
+
+        </div>
+    </div>
+</section>
