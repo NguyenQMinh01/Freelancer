@@ -4,7 +4,6 @@ class MessagesController < ApplicationController
       redirect_to request.referrer, alert: "Cannot send message to yourself"
     end
   
-    
   conversation = Conversation.where("(sender_id = ? AND receiver_id = ?) OR (sender_id = ? AND receiver_id = ?)",
                                   current_user.id, message_params[:receiver_id], message_params[:receiver_id], current_user.id ).first
   

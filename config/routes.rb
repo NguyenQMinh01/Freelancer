@@ -26,7 +26,9 @@ Rails.application.routes.draw do
     get '/request_offers/:id', to: 'requests#offers', as: 'request_offers'  #request_offers_path
     get '/my_offers', to: 'requests#my_offers'
     get '/search', to: 'pages#search'
-    get '/orders/:id', to: 'orders#show', as: "order_detail" 
+    get '/orders/:id', to: 'orders#show', as: "order_detail"
+    get '/conversations', to: 'conversations#list', as: "conversations"
+    get '/conversations/:id', to: 'conversations#show', as: "conversations_detail"
 
     post 'users/edit', to: 'users#update' #users_edit_path
     post '/offers', to: 'offers#create'
