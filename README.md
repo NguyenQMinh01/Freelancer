@@ -84,3 +84,7 @@ rails g model Offer note:text amount:integer days:integer status:integer request
 
 * rails g model Conversation sender:references receiver:references
 * rails g model Message content:text user:references conversation:references
+
+* Realtime message not reload page
+* rails g channel Message
+ 

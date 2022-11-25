@@ -20,7 +20,7 @@
                                             </figure>
                                         </div>                                
                                         <div class="media-content">
-                                            <p class="title is-6"><%= conversation.receiver_id.full_name%></p>
+                                            <p class="title is-6"><%= @client.full_name %></p>
                                             <p class="subtitle is-7">
                                                 <%= (conversation.last_message.user_id == current_user.id ? "You: #{conversation.last_message.content}" : conversation.last_message.content).truncate(18) %>
                                                 .<%= time_ago_in_words(conversation.last_message.updated_at.strftime("%b %Y"))%>

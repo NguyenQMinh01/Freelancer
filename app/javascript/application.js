@@ -30,3 +30,4 @@ window.BulmaCarousel = require("bulma-extensions/bulma-carousel/dist/js/bulma-ca
 
 
 
+import "./channels"
