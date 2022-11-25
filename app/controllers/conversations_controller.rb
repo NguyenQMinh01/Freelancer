@@ -1,5 +1,6 @@
 class ConversationsController < ApplicationController
     before_action :get_conversations
+    
     def list  
     
     end

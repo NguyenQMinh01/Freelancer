@@ -39,6 +39,9 @@ Rails.application.routes.draw do
     put '/offers/:id/accept', to: 'offers#accept', as: 'accept_offer'
     put '/offers/:id/reject', to: 'offers#reject', as: 'reject_offer'
   
+    #cho phép sử dụng ActionCable trong ứng dụng. 
+    # Serve websocket cable requests in-process
+    mount ActionCable.server => '/cable'
 
     # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
