@@ -19,7 +19,6 @@ class ConversationsController < ApplicationController
         else
             @messages = Message.where(conversation_id: @conversation.id)
         end
-
     end
 
 
@@ -29,5 +28,4 @@ class ConversationsController < ApplicationController
     def get_conversations
         @conversations = Conversation.where("sender_id = ? OR receiver_id = ?",current_user.id, current_user.id).order(updated_at: :desc)
     end
-
 end

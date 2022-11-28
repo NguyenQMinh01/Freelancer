@@ -111,5 +111,9 @@ gem 'rails-i18n'
 gem 'bootstrap'
 gem 'popper_js'
 
+#debug
+gem 'pry-rails', :group => :development
+
+
 
 
