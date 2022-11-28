@@ -111,5 +111,7 @@ gem 'rails-i18n'
 gem 'bootstrap'
 gem 'popper_js'
 
+gem 'redis'
+
 
 

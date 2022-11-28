@@ -5,6 +5,7 @@
     "@rails/ujs": "^7.0.4",
     "bulma": "^0.9.4",
     "bulma-extensions": "^6.2.7",
+    "dayjs": "^1.11.6",
     "dropzone": "^6.0.0-beta.2",
     "jquery": "^3.6.1",
     "jquery-raty-js": "^2.8.0",
@@ -12,6 +13,7 @@
     "raty-js": "2.9.0",
     "trix": "^2.0.0-beta.0",
     "turbolinks": "^5.2.0",
+    "webpack-dev-server": "^4.11.1",
     "yarn": "^1.22.19"
   },
   "devDependencies": {

@@ -2,12 +2,12 @@
 <section class="section">
     <div class="columns">
     
-        <div class="column is-4">
-            <nav class="menu">
+        <div class="column is-4" >
+            <nav class="menu" >
                 <p class="menu-label">
                     Chats
                 </p>
-                <ul class="menu-list">
+                <ul class="menu-list" >
                     <% @conversations.each do |conversation|%>
                         <% @client = conversation.sender_id == current_user.id ? conversation.receiver : conversation.sender   %>
                         <%= link_to conversations_detail_path(@client.id) do  %>

@@ -113,6 +113,7 @@ GEM
       ssrf_filter (~> 1.0)
     childprocess (4.1.0)
     concurrent-ruby (1.1.10)
+    connection_pool (2.3.0)
     crass (1.0.6)
     debug (1.6.2)
       irb (>= 1.3.6)
@@ -192,6 +193,7 @@ GEM
     method_source (1.0.0)
     mini_magick (4.11.0)
     mini_mime (1.1.2)
+    mini_portile2 (2.8.0)
     minitest (5.16.3)
     msgpack (1.6.0)
     multi_xml (0.6.0)
@@ -206,9 +208,8 @@ GEM
     net-smtp (0.3.2)
       net-protocol
     nio4r (2.5.8)
-    nokogiri (1.13.8-x64-mingw32)
-      racc (~> 1.4)
-    nokogiri (1.13.8-x86_64-linux)
+    nokogiri (1.13.8)
+      mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
     noty-rails (2.3.8)
     oauth2 (2.0.9)
@@ -237,7 +238,6 @@ GEM
       omniauth (~> 2.0)
     orm_adapter (0.5.0)
     pg (1.4.4)
-    pg (1.4.4-x64-mingw32)
     popper_js (2.11.6)
     public_suffix (5.0.0)
     puma (5.6.5)
@@ -282,6 +282,10 @@ GEM
       activerecord (>= 6.1.5)
       activesupport (>= 6.1.5)
       i18n
+    redis (5.0.5)
+      redis-client (>= 0.9.0)
+    redis-client (0.11.2)
+      connection_pool
     regexp_parser (2.6.0)
     reline (0.3.1)
       io-console (~> 0.5)
@@ -389,6 +393,7 @@ DEPENDENCIES
   puma (~> 5.0)
   rails (~> 7.0.4)
   rails-i18n
+  redis
   selenium-webdriver
   simple_form
   sprockets-rails
@@ -399,7 +404,7 @@ DEPENDENCIES
   webdrivers
 
 RUBY VERSION
-   ruby 3.0.4p208
+   ruby 3.1.2p20
 
 BUNDLED WITH
    2.3.22

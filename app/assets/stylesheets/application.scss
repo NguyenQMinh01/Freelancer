@@ -460,3 +460,34 @@ img{
   width: 3%;
 }
 
+#message_list{
+  height: calc(100vh - 150px);
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.menu_list{
+  height: 100vh;
+  margin-right: 0px !important;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.menu{
+  margin-bottom: 100px;
+  height: 50vh;
+  margin-right: 0px !important;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.conversation-message{
+  word-wrap: break-word;
+  width: fit-content;
+  max-width: 50%;
+  padding-right: 80px;
+  
+}
+
+
+

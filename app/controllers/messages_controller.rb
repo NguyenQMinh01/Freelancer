@@ -18,11 +18,13 @@ class MessagesController < ApplicationController
         MessageChannel.broadcast_to conversation, sender_id: current_user.id,
                                                   sender: render_message(@message,current_user),
                                                   receiver: render_message(@message, receiver)
-                                                  
-    redirect_to request.referrer, notice: "Sent the message Success"
 
+      # if URI(request.referrer).path == conversations_detail_path(id: receiver.id)
+      #   return render json: { success: true}
+      # end
+       render conversations_detail_path(id: receiver.id)
     else
-      redirect_to redirect_to request.referrer, notice: "Cannot sent the message"
+      redirect_to  request.referrer, notice: "Cannot sent the message"
     end
 
   end

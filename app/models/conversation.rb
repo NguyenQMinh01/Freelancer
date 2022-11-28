@@ -1,7 +1,7 @@
 class Conversation < ApplicationRecord
   belongs_to :sender, class_name: "User"
   belongs_to :receiver,  class_name: "User"
-
+  after_create_commit { broadcast_append_to 'conversations' }
 
   def last_message
     message = Message.where(conversation_id: self.id).last
