@@ -15,7 +15,7 @@ class GigsController < ApplicationController
 
     if @gig.save
       @gig.pricings.create(Pricing.pricing_types.values.map { |x| { pricing_type: x } })
-      redirect_to edit_gig_path(@gig), notice: "Save.."
+      redirect_to edit_gig_path(@gig), notice: "Save gig succsess.."
     else
       redirect_to request.referrer, notice: @gigs.errors.full_messages
     end
