@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @reviews = Review.where(seller_id: params[:id]).order("created_at DESC")
+    @gig = Gig.where("gigs.user_id = ?", current_user.id).page(params[:page]).per(6)
   end
 
   def update 

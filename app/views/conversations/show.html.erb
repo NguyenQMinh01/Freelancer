@@ -60,7 +60,8 @@
             <hr>
 
             <!--My Messages -->
-            <div class="columns is-multiline" id = "message_list">
+            <div data-controller='message-list'>
+            <div class="columns is-multiline" id = "message_list" data-target='message-list.messages'>
                 <% @messages.each do |message| %>
                   <%= render 'conversations/message', message: message, user: current_user %>
                 <% end %>
@@ -68,11 +69,11 @@
 
             <!-- Send Message -->
             <div class="column m-t-25">
-                <%= form_with model: Message.new, id: "new_message" do |f| %>
+                <%= form_with model: Message.new, id: "new_message", data: { action: 'ajax:success->message-list#clearInput' } do |f| %>
                     <%= f.hidden_field :receiver_id, value: @user.id %>
                     <div class= "field has-addons">
                         <div class = "control" style = "width: 100%">
-                            <%= f.text_field :content, class: "input" , placeholder: "Aa"%>
+                            <%= f.text_field :content, class: "input", data: { target: 'message-list.input' } , placeholder: "Aa"%>
                         </div>
                         <div class="control">
                             <%= f.submit "Send", class: "button is-primary" %>
@@ -80,7 +81,11 @@
                     </div>
                 <% end %>
             </div>
+            </div>
             
         </div>
     </div>
 </section>
+
+<script>
+</script>

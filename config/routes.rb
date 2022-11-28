@@ -29,6 +29,7 @@ Rails.application.routes.draw do
     get '/orders/:id', to: 'orders#show', as: "order_detail"
     get '/conversations', to: 'conversations#list', as: "conversations"
     get '/conversations/:id', to: 'conversations#show', as: "conversations_detail"
+    get '/contacts', to: 'contacts#contact', as: "contacts"
 
     post 'users/edit', to: 'users#update' #users_edit_path
     post '/offers', to: 'offers#create'

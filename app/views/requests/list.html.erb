@@ -49,9 +49,9 @@
                         <td>
                             <%= link_to r.title.truncate(25, seperator: ''), request_path(r)%>
                         </td>
-                        <td class ="has-text-right"><%= r.offers.count%></td>
-                        <td class ="has-text-right"><%= pluralize(r.delivery, 'day') %></td>
-                        <td class ="has-text-right">$<%= r.budget %></td>
+                        <td class = "has-text-centered"><%= r.offers.count%></td>
+                        <td class = "has-text-centered"><%= pluralize(r.delivery, 'day') %></td>
+                        <td class = "has-text-centered">$<%= r.budget %></td>
                     </tr>
                     <%end%>
                  </tbody>

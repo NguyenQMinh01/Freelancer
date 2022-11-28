@@ -38,8 +38,10 @@
                         </label>
                     </div>
                 </div> 
-
+                
+                <br/>
                 <div class="field has-text-centered">
+                    <%= link_to 'Exit', dashboard_path, class: "button is-danger", style: "width: 70px"%>
                     <%= f.submit 'Post request', class: "button is-primary" %>
                 </div>
                 <% end %>

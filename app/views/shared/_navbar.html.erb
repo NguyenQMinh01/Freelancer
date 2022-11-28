@@ -100,7 +100,9 @@
         <% if (user_signed_in?) && !current_page?(root_path) && !current_page?("/gigs/#{params[:id]}") && !current_page?(search_path) %>       
             <hr style="color: white"/>
             <div class="sub-nav" data-turbo= false>
-                <a href="#"><li>My Project</li></a>
+                <a href="<%= contacts_path %>"><li>Contact</li></a>
+                <a href="<%= conversations_path %>"><li style="margin-top: 0px;">Messages</li></a>
+                
                 <div class="navbar-item" style="min-width: 200px">
                     <span class="navbar-link inline-block" style="" onclick="mobile_dropdown('mobile-buying')" >
                         <a style="">(Freelancer) Buying ></a>
