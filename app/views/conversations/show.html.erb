@@ -74,7 +74,7 @@
                     <%= f.hidden_field :receiver_id, value: @user.id %>
                     <div class= "field has-addons">
                         <div class = "control" style = "width: 100%">
-                            <%= f.text_field :content, class: "input", data: { target: 'message-list.input' } , placeholder: "Aa"%>
+                            <%= f.text_field :content, class: "input", data: { target: 'message-list.input' } , placeholder: "Aa", required: true %>
                         </div>
                         <div class="control">
                             <%= f.submit "Send", class: "button is-primary" %>
