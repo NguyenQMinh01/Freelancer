@@ -8,10 +8,10 @@
     <%= csp_meta_tag %>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
-    <%= javascript_include_tag 'application'%>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
-    
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': true, 'type': 'module' %>
+    <!-- <%= javascript_importmap_tags %> -->
+
   </head>
 <body>
 
@@ -33,4 +33,25 @@
 
  
 </body>
+
+<script>
+  $(window).scroll(function() {
+  sessionStorage.scrollTop = $(this).scrollTop();
+});
+
+let prev_scrollY = document.getElementById("message_list").offsetHeight
+
+$(document).ready(function() {
+  if (sessionStorage.scrollTop != 'undefined') {
+    $(window).scrollTop(sessionStorage.scrollTop);
+    document.getElementById("message_list").offsetHeight = prev_scrollY
+    prev_scrollY = document.getElementById("message_list").offsetHeight
+
+  }
+});
+
+$(document).on('ready turbolinks:load', function() {
+    $('#page-loading').fadeOut('slow');
+});
+</script>
 </html>

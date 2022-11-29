@@ -84,10 +84,10 @@
                     </div>
                     <div class= "field has-addons">
                         <div class = "control" style = "width: 100%">
-                            <%= f.text_field :content, class: "input", required: true, data: { target: 'message-list.input' } , placeholder: "Aa", autocomplete: "off" %>
+                            <%= f.text_field :content, class: "input", onkeyup: "check()" ,id: "input_message", required: true, data: { target: 'message-list.input' } , placeholder: "Aa", autocomplete: "off" %>
                         </div>
                         <div class="control">
-                            <%= f.submit "Send", class: "button is-primary" ,data: {disable_with: false,controller: "message-preview", action: "click->message-preview#clearPreviews"}%>
+                            <%= f.submit "Send", class: "button is-primary", id: "submit" ,data: {disable_with: false,controller: "message-preview", action: "click->message-preview#clearPreviews"} ,disabled: true%>
                         </div>   
                     </div>
                   
@@ -100,4 +100,16 @@
 </section>
 
 <script>
+    function check(){
+        value = document.getElementById("input_message").value
+        if (value.trim() == ""){
+            document.getElementById("submit").disabled = true
+        }
+        else
+        document.getElementById("submit").disabled = false
+
+    }
+
+
+    
 </script>
