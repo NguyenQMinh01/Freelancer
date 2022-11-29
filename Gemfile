@@ -114,4 +114,4 @@ gem 'popper_js'
 gem 'redis'
 
 
-
+gem "ruby-vips"

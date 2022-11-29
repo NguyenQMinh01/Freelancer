@@ -10,7 +10,7 @@ class MessagesController < ApplicationController
     conversation = Conversation.create(sender_id: current_user.id, receiver_id: message_params[:receiver_id]) if !conversation.present?
 
 
-    @message = Message.new(user_id: current_user.id, conversation_id: conversation.id, content: message_params[:content])
+    @message = Message.new(user_id: current_user.id, conversation_id: conversation.id, content: message_params[:content], attachments: message_params[:attachments])
       
     if @message.save
         conversation.update!(updated_at: @message.created_at)
@@ -22,12 +22,13 @@ class MessagesController < ApplicationController
       # if URI(request.referrer).path == conversations_detail_path(id: receiver.id)
       #   return render json: { success: true}
       # end
-       render conversations_detail_path(id: receiver.id)
+      redirect_to  request.referrer, notice: "Send the message succsess"
     else
       redirect_to  request.referrer, notice: "Cannot sent the message"
     end
 
   end
+
 
   private
 
@@ -36,6 +37,6 @@ class MessagesController < ApplicationController
   end
 
   def message_params
-    params.require(:message).permit(:content, :receiver_id)
+    params.require(:message).permit(:content, :receiver_id, attachments: [])
   end
 end

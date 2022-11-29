@@ -461,9 +461,10 @@ img{
 }
 
 #message_list{
-  height: calc(100vh - 150px);
+  height: calc(100vh - 350px);
   overflow-x: hidden;
   overflow-y: scroll;
+
 }
 
 .menu_list{
@@ -485,9 +486,19 @@ img{
   word-wrap: break-word;
   width: fit-content;
   max-width: 50%;
+  max-height: 130%;
   padding-right: 80px;
-  
+  height: fit-content;
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+  padding-right: 0.3rem;
+  padding-left: 0.3rem;
 }
+
+
+
+
+
 
 
 

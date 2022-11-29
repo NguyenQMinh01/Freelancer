@@ -394,6 +394,7 @@ DEPENDENCIES
   rails (~> 7.0.4)
   rails-i18n
   redis
+  ruby-vips
   selenium-webdriver
   simple_form
   sprockets-rails
