@@ -12,6 +12,8 @@
                     <%= audio_tag(url_for(attachment), controls: '')%>
                 <% elsif attachment.gif? %>
                     <%= gif_tag(url_for(attachment), controls: '')%>
+                <% elsif attachment.svg? %>
+                    <%= svg_tag(url_for(attachment), controls: '')%>
                 <% else %>
                     <%= link_to attachment.filename. url_for(attachment), style: "text-decoration: none; color: #fff"%>
                 <% end %>         

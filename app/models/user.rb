@@ -8,9 +8,7 @@ class User < ApplicationRecord
 
   has_many :buying_orders, foreign_key: "buyer_id", class_name: "Order"
   has_many :selling_orders, foreign_key: "seller_id", class_name: "Order"
-
   after_create_commit { broadcast_append_to 'users' }
-  after_update_commit { broadcast_update }
   
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable,

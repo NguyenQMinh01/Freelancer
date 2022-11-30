@@ -33,8 +33,8 @@
                         <li><%= link_to 'Post gig', new_gig_path %></li>
                         <li><%= link_to 'Search gig', search_path %></li>
                         <% if (!user_signed_in?) %>
-                            <li><%= link_to "Login", new_user_session_path, class: "button is-success" %></li>
-                            <li><%= link_to "Sign Up", new_user_registration_path, class: "button is-danger" %></li>
+                            <li><%= link_to "Login", new_user_session_path, style: "color: #99FF99" %></li>
+                            <li><%= link_to "Sign Up", new_user_registration_path, style: "color: #CC0000" %></li>
                         <% else %>
                             <div class="navbar-item is-hoverable">
                                 <a class="navbar-link">
@@ -77,8 +77,8 @@
         <li><%= link_to 'Post gig', new_gig_path %></li>
         <li><%= link_to 'Search gig', search_path %></li>
         <% if (!user_signed_in?) %>
-            <li><%= link_to "Login", new_user_session_path, class: "button is-success" %></li>
-            <li><%= link_to "Sign Up", new_user_registration_path, class: "button is-danger" %></li>
+            <li><%= link_to "Login", new_user_session_path, style: "color: #99FF99" %></li>
+            <li><%= link_to "Sign Up", new_user_registration_path, style: "color: #CC0000" %></li>
         <% else %>
             <div class="navbar-item is-hoverable" style="min-width: 200px">
                 <span class="navbar-link inline-block" style="" onclick="mobile_dropdown('mobile-user')" >

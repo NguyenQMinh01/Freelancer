@@ -22,7 +22,7 @@ class MessagesController < ApplicationController
       # if URI(request.referrer).path == conversations_detail_path(id: receiver.id)
       #   return render json: { success: true}
       # end
-      redirect_to  request.referrer, notice: "Send the message succsess"
+      redirect_to request.referrer, notice: "Send the message succsess"
     else
       redirect_to  request.referrer, notice: "Cannot sent the message"
     end

@@ -76,15 +76,15 @@
                     <div id="attachment-previews" data-controller="message-preview" data-action="message-preview#preview">
                         
                     </div>
-                    <div class="image-upload">
+                    <div class="image-upload" id="file_images">
                         <label for="message_attachments">
                             <i class="bi bi-plus-circle upload-button"></i>
                         </label>
-                        <%= f.file_field(:attachments, multiple: true, data:{controller:"message-preview", action:"change->message-preview#preview"})%>
+                        <%= f.file_field(:attachments,id:"file_image", multiple: true, data:{controller:"message-preview", action:"change->message-preview#preview"})%>
                     </div>
                     <div class= "field has-addons">
                         <div class = "control" style = "width: 100%">
-                            <%= f.text_field :content, class: "input", onkeyup: "check()" ,id: "input_message", required: true, data: { target: 'message-list.input' } , placeholder: "Aa", autocomplete: "off" %>
+                            <%= f.text_field :content, class: "input", onkeyup: "check()" ,id: "input_message", data: { target: 'message-list.input' } , placeholder: "Aa", autocomplete: "off" %>
                         </div>
                         <div class="control">
                             <%= f.submit "Send", class: "button is-primary", id: "submit" ,data: {disable_with: false,controller: "message-preview", action: "click->message-preview#clearPreviews"} ,disabled: true%>
@@ -102,14 +102,31 @@
 <script>
     function check(){
         value = document.getElementById("input_message").value
-        if (value.trim() == ""){
+        file = document.getElementById("file_image").files.length
+
+
+        if (value.trim() == ""  && file == 0){
             document.getElementById("submit").disabled = true
         }
         else
         document.getElementById("submit").disabled = false
 
     }
+    document.getElementById('file_image').onchange = function() {
+        value = document.getElementById("input_message").value
+        file = document.getElementById("file_image").files.length
+
+        if (value.trim() == "" && file == 0){
+            document.getElementById("submit").disabled = true
+        }
+        else
+        document.getElementById("submit").disabled = false
+    };
+    $(window).load(function() {
+        alert("ff")
+        mess_list = document.getElementById("message_list")
+        mess_list.scrollTop = mess_list.scrollHeight;
+    });
 
 
-    
 </script>

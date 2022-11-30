@@ -33,7 +33,6 @@ class OffersController < ApplicationController
 
             if charge(@offer.request, @offer)
             flash[:notice] = "Accepted"
-            return redirect_to  buying_orders_path
             else
                 flash[:alert] = "Cannot create your order"
             end
@@ -59,9 +58,10 @@ class OffersController < ApplicationController
         order.title = req.title
         order.seller_name = offer.user.full_name
         order.seller_id = offer.user.id
+        order.gig_id = offer.request.id
         order.buyer_name = current_user.full_name
         order.buyer_id = current_user.id
-        order.amount = offer.price
+        order.amount = offer.amount
         order.save
     end
 

@@ -13,6 +13,8 @@ class Message < ApplicationRecord
       target.variant(resize_to_limit: [150, 150]).processed
     elsif target.gif?
       target.variant(resize_to_limit: [150, 150]).processed
+    elsif target.svg?
+      target.variant(resize_to_limit: [150, 150]).processed
     end
   end
 

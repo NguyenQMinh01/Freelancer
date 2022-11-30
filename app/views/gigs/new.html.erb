@@ -51,7 +51,7 @@
         </div>
 
         <div class="field is-grouped is-grouped-centered m-t-25">
-            <a href="" data-nav="previous" class ="button is-light">Cancel</a>
+          <%= link_to 'Exit', dashboard_path, class: "button is-danger", style: "width: 70px; margin-right: 10px;"%>
             <%= f.submit "Save and Continue", class: "button is-primary" %>
         </div>
         <% end %>

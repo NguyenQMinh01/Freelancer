@@ -16,7 +16,6 @@ Rails.application.routes.draw do
 
     delete 'requests/delete' 
     
-    #  get '*path' => redirect('/404.html') #render page 404
     get '/dashboard', to: 'users#dashboard'
     get 'users/:id', to: 'users#show', :as => :user_show #user_show_path
     get '/selling_orders', to: 'orders#selling_orders'
@@ -36,10 +35,12 @@ Rails.application.routes.draw do
     post '/comments', to: 'comments#create'
     post '/reviews', to: 'reviews#create', as: "reviews"
     post '/messages', to: 'messages#create'
+    
+    # get '/offers/:id/reject', to: 'offers#reject', as: 'reject_offer'
 
+    #  get '/offers/:id/accept', to: 'offers#accept', as: 'accept_offer'
     put '/offers/:id/accept', to: 'offers#accept', as: 'accept_offer'
     put '/offers/:id/reject', to: 'offers#reject', as: 'reject_offer'
-  
     #cho phép sử dụng ActionCable trong ứng dụng. 
     # Serve websocket cable requests in-process
     mount ActionCable.server => '/cable'
@@ -72,6 +73,7 @@ Rails.application.routes.draw do
   controllers: {omniauth_callbacks: 'omniauth_callbacks', registrations: 'registrations'}
   resources :users
 
-  
+  # match '*path' => redirect('/404.html') #render page 404
+
 end
  
